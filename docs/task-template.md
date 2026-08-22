@@ -1,0 +1,22 @@
+# Task <ID>
+
+- Fonte canônica e requisito:
+- Palavra-chave primária e segmento:
+- Vínculo com ALVO, ACEITE e DESTINO:
+- Classificação da entrada: alinhada | ambígua | desvio corrigido | crítica aprovada
+- Dono, revisor e integrador:
+- Perfil do participante: função, habilidade relevante, disponibilidade e autoridade:
+- Branch exclusiva: `task/<ID>-<slug>`
+- Commit-base:
+- Área de propriedade e arquivos permitidos:
+- Classe: núcleo | bônus
+- Entrada e artefato esperado:
+- Exemplo mínimo de saída correta e exemplo do que não fazer:
+- Para extração: campos de origem, transformação e exemplo esperado:
+- Critério observável de aceite:
+- Comando/caso, ambiente, resultado e commit da evidência:
+- Orçamento, checkpoint e fallback:
+- Autonomia permitida e decisão que exige humano:
+- Ação no checkpoint: integrar | simplificar | fallback | transferir | cortar
+- Dependências, riscos e próximo consumidor:
+- Última atualização e encerramento: integrada | bloqueada | handoff
