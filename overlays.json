@@ -45,8 +45,8 @@
           { "field": "provedores_llm_ativos", "operator": "at_least", "value": 2 }
         ]
       },
-      "required_reading": ["TEAM.md"],
-      "required_outputs": ["identidade de cada LLM", "snapshot comum", "autonomia por tarefa", "critério de independência"],
+      "required_reading": ["TEAM.md", "docs/context-registry.md"],
+      "required_outputs": ["identidade de cada LLM", "snapshot comum em contexts/", "autonomia por tarefa", "critério de independência"],
       "exit_condition": "todas as LLMs ativas possuem identidade, snapshot, autonomia e integração registrados"
     },
     {

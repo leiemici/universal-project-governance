@@ -22,3 +22,7 @@ Se a resposta for vaga, a LLM apresenta até três tarefas abertas já delimitad
 - Iniciante ou auxiliar: extração estruturada, fixtures, checklist, conteúdo, teste guiado e revisão visual.
 
 Esses perfis orientam suporte, não valor ou autoridade. A tarefa determina o que pode ser alterado.
+
+## Identidade de LLM
+
+Cada LLM ativa possui identidade no snapshot da tarefa: fornecedor, modelo, versão quando exposta, fontes de contexto, autonomia, autorização e grupo de independência. Apelidos como “a IA do backend” não bastam. Fornecedores diferentes não provam independência se compartilham modelo, fontes ou incentivo; registre a limitação sem fabricar certeza.

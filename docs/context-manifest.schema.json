@@ -1,0 +1,245 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:universal-project-governance:context-manifest:1",
+  "title": "Portable project context manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "snapshot_id",
+    "task_id",
+    "status",
+    "project_revision",
+    "created_at",
+    "valid_until",
+    "context_origin",
+    "canonical_documents",
+    "decisions",
+    "contracts",
+    "handoff",
+    "consumer",
+    "data_policy",
+    "invalidation",
+    "next_consumer"
+  ],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "snapshot_id": { "type": "string", "pattern": "^CTX-[A-Za-z0-9._-]+$" },
+    "task_id": { "type": "string", "minLength": 1 },
+    "status": { "enum": ["draft", "valid", "expired", "invalidated"] },
+    "project_revision": { "$ref": "#/$defs/revision" },
+    "created_at": { "type": "string", "format": "date-time" },
+    "valid_until": {
+      "oneOf": [
+        { "type": "string", "format": "date-time" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["event", "reference"],
+          "properties": {
+            "event": { "type": "string", "minLength": 1 },
+            "reference": { "type": "string", "minLength": 1 }
+          }
+        }
+      ]
+    },
+    "context_origin": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/origin" }
+    },
+    "canonical_documents": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/versioned_ref" }
+    },
+    "decisions": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/identified_ref" }
+    },
+    "contracts": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/versioned_ref" }
+    },
+    "handoff": {
+      "oneOf": [
+        { "type": "null" },
+        { "$ref": "#/$defs/versioned_ref" }
+      ]
+    },
+    "consumer": { "$ref": "#/$defs/consumer" },
+    "data_policy": { "$ref": "#/$defs/data_policy" },
+    "invalidation": { "$ref": "#/$defs/invalidation" },
+    "next_consumer": { "type": "string", "minLength": 1 }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "status": { "const": "invalidated" } }, "required": ["status"] },
+      "then": {
+        "properties": {
+          "invalidation": {
+            "required": ["invalidated_at", "reason"],
+            "properties": {
+              "invalidated_at": { "type": "string", "format": "date-time" },
+              "reason": { "type": "string", "minLength": 1 }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "data_policy": {
+            "properties": { "classification": { "const": "prohibited" } },
+            "required": ["classification"]
+          }
+        },
+        "required": ["data_policy"]
+      },
+      "then": { "properties": { "status": { "enum": ["draft", "expired", "invalidated"] } } }
+    },
+    {
+      "if": { "properties": { "status": { "const": "valid" } }, "required": ["status"] },
+      "then": {
+        "properties": {
+          "invalidation": {
+            "properties": {
+              "invalidated_at": { "type": "null" },
+              "reason": { "type": "null" },
+              "superseded_by": { "type": "null" }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "status": { "const": "expired" } }, "required": ["status"] },
+      "then": {
+        "properties": {
+          "invalidation": {
+            "properties": { "reason": { "type": "string", "minLength": 1 } }
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "revision": { "type": "string", "pattern": "^(?:[0-9a-f]{40}|[0-9a-f]{64})$" },
+    "versioned_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "revision"],
+      "properties": {
+        "path": { "type": "string", "minLength": 1 },
+        "revision": { "$ref": "#/$defs/revision" }
+      }
+    },
+    "identified_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "path", "revision"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "path": { "type": "string", "minLength": 1 },
+        "revision": { "$ref": "#/$defs/revision" }
+      }
+    },
+    "origin": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "reference"],
+      "properties": {
+        "type": { "enum": ["repository", "issue", "handoff", "human-confirmation"] },
+        "reference": { "type": "string", "minLength": 1 },
+        "revision": {
+          "oneOf": [
+            { "type": "null" },
+            { "$ref": "#/$defs/revision" }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "type": { "const": "repository" } }, "required": ["type"] },
+          "then": { "required": ["revision"], "properties": { "revision": { "$ref": "#/$defs/revision" } } }
+        }
+      ]
+    },
+    "consumer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "identity", "autonomy", "authorization_ref"],
+      "properties": {
+        "kind": { "enum": ["human", "llm"] },
+        "identity": { "type": "string", "minLength": 1 },
+        "autonomy": { "enum": ["read-only", "propose", "reversible-execute", "reviewed-integrate"] },
+        "authorization_ref": { "type": ["string", "null"] },
+        "provider": { "type": "string", "minLength": 1 },
+        "model": { "type": "string", "minLength": 1 },
+        "version_status": { "enum": ["exposed", "not-exposed"] },
+        "model_version": { "type": ["string", "null"] },
+        "independence_group": { "type": ["string", "null"] }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "kind": { "const": "llm" } }, "required": ["kind"] },
+          "then": { "required": ["provider", "model", "version_status", "model_version", "independence_group"] }
+        },
+        {
+          "if": { "properties": { "autonomy": { "enum": ["reversible-execute", "reviewed-integrate"] } }, "required": ["autonomy"] },
+          "then": { "properties": { "authorization_ref": { "type": "string", "minLength": 1 } } }
+        },
+        {
+          "if": { "properties": { "version_status": { "const": "exposed" } }, "required": ["version_status"] },
+          "then": { "properties": { "model_version": { "type": "string", "minLength": 1 } } },
+          "else": { "properties": { "model_version": { "type": "null" } } }
+        }
+      ]
+    },
+    "data_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["classification", "purpose", "allowed", "prohibited"],
+      "properties": {
+        "classification": { "enum": ["public", "personal", "sensitive", "prohibited"] },
+        "purpose": { "type": "string", "minLength": 1 },
+        "allowed": { "type": "array", "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
+        "prohibited": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "minLength": 1 } }
+      }
+    },
+    "invalidation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["watched_refs", "invalidated_at", "reason", "superseded_by"],
+      "properties": {
+        "watched_refs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["path", "revision", "change_classes"],
+            "properties": {
+              "path": { "type": "string", "minLength": 1 },
+              "revision": { "$ref": "#/$defs/revision" },
+              "change_classes": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": { "enum": ["target", "deadline", "destination", "acceptance", "risk", "data", "contract", "decision", "handoff", "task", "editorial"] }
+              }
+            }
+          }
+        },
+        "invalidated_at": { "type": ["string", "null"], "format": "date-time" },
+        "reason": { "type": ["string", "null"] },
+        "superseded_by": { "type": ["string", "null"] }
+      }
+    }
+  }
+}
