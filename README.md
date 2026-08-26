@@ -8,16 +8,18 @@ A estrutura não tenta eliminar falhas humanas. Ela torna **alvo, prazo, destino
 
 ## Ordem de início
 
-1. Conversem livremente e sintetizem o entendimento em `PRD.md`.
+1. Conversem livremente e sintetizem o entendimento no `PRD.md`, que é o template preenchível da instância criada a partir deste repositório.
 2. A LLM converte o PRD em `PROJECT_CHARTER.md`: uma diretiva curta, verificável e aprovada pelo proprietário.
-3. Definam de duas a seis palavras-chave de segmentação no charter; cada uma aponta para um resultado, dono, orçamento e ponto de integração.
-4. Gerem `docs/execution-plan.md` e `docs/tasks.md` de acordo com prazo, risco e equipe. Projeto rápido não recebe épicos automaticamente.
-5. Publiquem no GitHub somente após confirmar a diretiva e o primeiro fluxo demonstrável.
-6. Quem entrar depois lê, nesta ordem: `PROJECT_CHARTER.md`, `CONTEXT.md`, `docs/steering.md`, `docs/tasks.md` e `docs/handoff.md`.
+3. O proprietário confirma os fatos de roteamento no charter; a equipe executa a ordem única de `docs/overlay-router.md`.
+4. Definam de duas a seis palavras-chave de segmentação no charter; cada uma aponta para um resultado, dono, orçamento e ponto de integração.
+5. Gerem `docs/execution-plan.md` e `docs/tasks.md` de acordo com prazo, risco e equipe. Projeto rápido não recebe épicos automaticamente.
+6. Publiquem no GitHub somente após confirmar a diretiva e o primeiro fluxo demonstrável.
+7. Quem entrar depois começa por `docs/overlay-router.md`; não existe uma segunda ordem de leitura neste README.
 
 ## Fonte de verdade
 
-- `PRD.md` preserva o porquê e o entendimento do produto.
+- `PRD.md` é o template de entendimento preenchido por cada projeto derivado.
+- `docs/architecture/prd.md` é o PRD deste repositório-produto e não deve ser preenchido por projetos derivados.
 - `PROJECT_CHARTER.md` é a diretiva operacional vigente.
 - `docs/decisions.md` altera a diretiva sem apagar a história.
 - `docs/tasks.md` mostra execução e responsabilidade por unidade de trabalho.

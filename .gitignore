@@ -1,0 +1,5 @@
+.neocortex/tmp/
+.neocortex/continuity/
+.neocortex/*.backup-*
+.neocortex-*-payload.txt
+.neocortex-yolo-*.txt

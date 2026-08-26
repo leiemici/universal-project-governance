@@ -1,6 +1,6 @@
 # Agent protocol
 
-Leia nesta ordem: `PROJECT_CHARTER.md`, `CONTEXT.md`, `docs/steering.md`, `GOVERNANCE.md`, `docs/decisions.md`, `docs/tasks.md`, `docs/handoff.md`.
+Comece por `docs/overlay-router.md` e siga sua ordem canônica. Não mantenha nem invente uma ordem paralela neste arquivo.
 
 Antes de agir, repita internamente o compasso: **ALVO → PRAZO RESTANTE → DESTINO → ACEITE → PALAVRA-CHAVE**. Se algum item estiver ausente ou contraditório, não amplie a tarefa.
 
@@ -10,7 +10,7 @@ Antes de agir, repita internamente o compasso: **ALVO → PRAZO RESTANTE → DES
 - Contorne ruído humano por redirecionamento: preserve a intenção útil, remapeie para o segmento correto e explique resumidamente o que ficou fora.
 - Registre conflito, ambiguidade material, bloqueio ou dependência externa antes de contornar.
 - Não introduza serviço externo, dado real, segredo, publicação ou deploy sem a aprovação exigida no charter.
-- Marque todo resultado como simulado, estimado, ao vivo ou validado.
+- Marque todo resultado como `simulado`, `estimado`, `executado` ou `validado`, conforme `CONTEXT.md`.
 - Não altere contrato, escopo ou classificação de risco sem decisão humana registrada.
 - Antes de editar, sincronize a branch de integração e registre o commit-base na tarefa. Se charter, decisões ou handoff mudaram, releia-os.
 - Toda tarefa cita sua fonte canônica. Ambiguidade com mais de uma interpretação vira decisão; não escolha a opção mais ampla.

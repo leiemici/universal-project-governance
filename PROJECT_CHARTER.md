@@ -44,6 +44,27 @@ Use de duas a seis palavras-chave canônicas. Toda tarefa possui exatamente uma 
 - Verificação pré-commit/merge/deploy e responsável:
 - Branch de integração:
 
+## Fatos para roteamento
+
+O proprietário confirma estes valores; a LLM não os infere. Use exatamente o vocabulário indicado para que `overlays.json` produza o mesmo resultado em ferramentas diferentes.
+
+- `prazo_total_horas`: número positivo | indeterminado
+- `risco`: baixo | médio | alto | extremo
+- `llms_ativas`: número inteiro a partir de 0
+- `provedores_llm_ativos`: número inteiro a partir de 0
+- `dados`: públicos | pessoais | sensíveis | proibidos
+- `dependencia`: nenhuma | externa | crítica
+- `contribuidores_ativos`: número inteiro a partir de 1
+- `suplente_ativo`: true | false
+- `efeito_dominio`: nenhum | clínico | financeiro | físico
+- `destino_operacional`: true | false
+- `privilegio_administrativo`: true | false
+- `acao_irreversivel`: true | false
+- `roteamento_confirmado_por`:
+- `roteamento_confirmado_em`:
+
+Execute `docs/overlay-router.md` depois da confirmação. Fato ausente, inválido ou incompatível com o piso de risco mantém o roteamento pendente.
+
 ## Autoridade da LLM
 
 - Autonomia autorizada: orientar | executar reversível | integrar com revisão | somente propor

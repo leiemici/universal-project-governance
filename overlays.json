@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "canonical_entry": "docs/overlay-router.md",
+  "fact_source": "PROJECT_CHARTER.md#fatos-para-roteamento",
+  "facts": {
+    "prazo_total_horas": { "required": true, "type": "positive-number-or-literal", "literal": "indeterminado" },
+    "risco": { "required": true, "type": "enum", "values": ["baixo", "médio", "alto", "extremo"] },
+    "llms_ativas": { "required": true, "type": "integer", "minimum": 0 },
+    "provedores_llm_ativos": { "required": true, "type": "integer", "minimum": 0 },
+    "dados": { "required": true, "type": "enum", "values": ["públicos", "pessoais", "sensíveis", "proibidos"] },
+    "dependencia": { "required": true, "type": "enum", "values": ["nenhuma", "externa", "crítica"] },
+    "contribuidores_ativos": { "required": true, "type": "integer", "minimum": 1 },
+    "suplente_ativo": { "required": true, "type": "boolean" },
+    "efeito_dominio": { "required": true, "type": "enum", "values": ["nenhum", "clínico", "financeiro", "físico"] },
+    "destino_operacional": { "required": true, "type": "boolean" },
+    "privilegio_administrativo": { "required": true, "type": "boolean" },
+    "acao_irreversivel": { "required": true, "type": "boolean" }
+  },
+  "rules": {
+    "evaluate_all_overlays": true,
+    "missing_or_invalid_fact": "routing-pending",
+    "fast_project_max_hours": 4,
+    "fast_project_max_tasks": 6,
+    "fast_project_epics_without_trigger": false,
+    "inactive_overlays_add_work": false
+  },
+  "risk_floor": {
+    "minimum": "alto",
+    "on_any": [
+      { "field": "dados", "operator": "in", "value": ["sensíveis", "proibidos"] },
+      { "field": "efeito_dominio", "operator": "not_equals", "value": "nenhum" },
+      { "field": "destino_operacional", "operator": "equals", "value": true },
+      { "field": "privilegio_administrativo", "operator": "equals", "value": true },
+      { "field": "acao_irreversivel", "operator": "equals", "value": true }
+    ],
+    "on_violation": "routing-pending-human-risk-reclassification"
+  },
+  "overlays": [
+    {
+      "id": "multi-llm",
+      "inputs": ["llms_ativas", "provedores_llm_ativos"],
+      "activation": {
+        "any": [
+          { "field": "llms_ativas", "operator": "at_least", "value": 2 },
+          { "field": "provedores_llm_ativos", "operator": "at_least", "value": 2 }
+        ]
+      },
+      "required_reading": ["TEAM.md"],
+      "required_outputs": ["identidade de cada LLM", "snapshot comum", "autonomia por tarefa", "critério de independência"],
+      "exit_condition": "todas as LLMs ativas possuem identidade, snapshot, autonomia e integração registrados"
+    },
+    {
+      "id": "dados-dependencias",
+      "inputs": ["dados", "dependencia"],
+      "activation": {
+        "any": [
+          { "field": "dados", "operator": "in", "value": ["pessoais", "sensíveis", "proibidos"] },
+          { "field": "dependencia", "operator": "equals", "value": "crítica" }
+        ]
+      },
+      "required_reading": ["docs/dependencies.md"],
+      "required_outputs": ["finalidade e minimização", "proveniência", "go/no-go", "fallback testado"],
+      "exit_condition": "dados permitidos e dependências críticas possuem dono, limite, evidência e fallback; dado proibido continua bloqueado"
+    },
+    {
+      "id": "solo",
+      "inputs": ["contribuidores_ativos", "suplente_ativo"],
+      "activation": {
+        "all": [
+          { "field": "contribuidores_ativos", "operator": "equals", "value": 1 },
+          { "field": "suplente_ativo", "operator": "equals", "value": false }
+        ]
+      },
+      "required_reading": ["RUNBOOK.md"],
+      "required_outputs": ["checkpoint externo", "pacote de retomada", "ação por ausência"],
+      "exit_condition": "há checkpoint recuperável e decisão explícita para simplificar, congelar ou transferir"
+    },
+    {
+      "id": "alto-extremo",
+      "inputs": ["risco"],
+      "activation": {
+        "any": [
+          { "field": "risco", "operator": "in", "value": ["alto", "extremo"] }
+        ]
+      },
+      "required_reading": ["profiles/high-extreme.md", "RUNBOOK.md"],
+      "required_outputs": ["autoridade tipada", "segregação de funções", "evidência externa", "limite de parada"],
+      "exit_condition": "perfil e runbook foram aplicados; destino operacional só avança com controle externo válido"
+    },
+    {
+      "id": "dominio",
+      "inputs": ["efeito_dominio"],
+      "activation": {
+        "any": [
+          { "field": "efeito_dominio", "operator": "in", "value": ["clínico", "financeiro", "físico"] }
+        ]
+      },
+      "required_reading": ["profiles/high-extreme.md", "RUNBOOK.md"],
+      "required_outputs": ["anexo do domínio", "aprovador competente", "destino seguro permitido", "recuperação específica"],
+      "exit_condition": "anexo e enforcement do domínio possuem evidência; na ausência, operação permanece bloqueada e o destino é rebaixado"
+    }
+  ]
+}

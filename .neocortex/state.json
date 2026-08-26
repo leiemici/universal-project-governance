@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "project": {
+    "name": "universal-project-governance",
+    "mode": "non-UI",
+    "default_branch": "main"
+  },
+  "epics": {
+    "P1": {
+      "id": "P1",
+      "title": "Arquitetura universal convergente",
+      "status": "committed",
+      "stories": [
+        "P1.01",
+        "P1.02",
+        "P1.03",
+        "P1.04",
+        "P1.05",
+        "P1.06"
+      ],
+      "last_updated": "2026-08-26T14:34:12.2635329-03:00",
+      "total_stories": 6,
+      "completed_stories": 0
+    }
+  },
+  "stories": {
+    "P1.01": {
+      "id": "P1.01",
+      "epic_id": "P1",
+      "status": "memory-updated",
+      "path": "docs/stories/P1.01.story.md",
+      "last_step": "step-c-08-commit-push",
+      "last_updated": "2026-08-26T16:24:00-03:00",
+      "steps_completed": [
+        "step-c-01-setup-branch",
+        "step-c-02-diagnose",
+        "step-c-03-research",
+        "step-c-04-write-spec",
+        "step-c-05-create-tasks",
+        "step-c-06-implement-tasks",
+        "step-c-14-refactor-suggest",
+        "step-c-066-property-tests",
+        "step-c-065-validate-tests",
+        "step-c-13-qa-gate",
+        "step-c-07-update-project-memory",
+        "step-c-08-commit-push"
+      ]
+    },
+    "P1.02": {
+      "id": "P1.02",
+      "epic_id": "P1",
+      "status": "planned",
+      "path": "docs/stories/P1.02.story.md"
+    },
+    "P1.03": {
+      "id": "P1.03",
+      "epic_id": "P1",
+      "status": "planned",
+      "path": "docs/stories/P1.03.story.md"
+    },
+    "P1.04": {
+      "id": "P1.04",
+      "epic_id": "P1",
+      "status": "planned",
+      "path": "docs/stories/P1.04.story.md"
+    },
+    "P1.05": {
+      "id": "P1.05",
+      "epic_id": "P1",
+      "status": "planned",
+      "path": "docs/stories/P1.05.story.md"
+    },
+    "P1.06": {
+      "id": "P1.06",
+      "epic_id": "P1",
+      "status": "planned",
+      "path": "docs/stories/P1.06.story.md"
+    }
+  },
+  "active_epic": "P1",
+  "active_story": "P1.01",
+  "last_updated": "2026-08-26T16:24:00-03:00",
+  "state_aggregate_reconciliations": [
+    {
+      "schemaVersion": 1,
+      "publicSafe": true,
+      "epicId": "P1",
+      "reasonCodes": [
+        "epic_total_stories_recounted",
+        "epic_completed_stories_recounted",
+        "epic_aggregate_reconciled"
+      ],
+      "previous": {
+        "total_stories": null,
+        "completed_stories": null,
+        "status": "memory-updated",
+        "completed_at_present": false
+      },
+      "next": {
+        "total_stories": 6,
+        "completed_stories": 0,
+        "status": "memory-updated",
+        "completed_at_present": false
+      },
+      "repairedAt": "2026-08-26T17:35:53.761Z"
+    }
+  ],
+  "state_repair_debt": [
+    {
+      "id": "state-aggregate-reconciliation:P1",
+      "status": "open",
+      "reason": "epic_aggregate_reconciled",
+      "reason_codes": [
+        "epic_aggregate_reconciled",
+        "epic_completed_stories_recounted",
+        "epic_total_stories_recounted"
+      ],
+      "category": "state/epic-aggregate-reconciliation",
+      "epic_id": "P1",
+      "created_at": "2026-08-26T17:35:53.761Z",
+      "last_seen_at": "2026-08-26T17:35:53.761Z",
+      "occurrences": 1
+    },
+    {
+      "id": "state-drift-repair:epic_aggregate_reconciled+epic_completed_stories_recounted+epic_total_stories_recounted",
+      "status": "open",
+      "reason": "state_json_drift_repaired",
+      "reason_codes": [
+        "epic_aggregate_reconciled",
+        "epic_completed_stories_recounted",
+        "epic_total_stories_recounted"
+      ],
+      "category": "state/drift-repair",
+      "created_at": "2026-08-26T17:35:53.761Z",
+      "last_seen_at": "2026-08-26T17:35:53.761Z",
+      "occurrences": 1
+    }
+  ],
+  "state_migration_repairs": [
+    {
+      "schemaVersion": 1,
+      "action": "client_auto_repair",
+      "reasonCodes": [
+        "epic_total_stories_recounted",
+        "epic_completed_stories_recounted",
+        "epic_aggregate_reconciled"
+      ],
+      "repairedAt": "2026-08-26T17:35:53.761Z"
+    }
+  ]
+}
