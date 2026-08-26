@@ -10,3 +10,5 @@ Ao detectar vazamento, ação indevida, dependência comprometida ou deploy inco
 6. Reconcilie dados/efeitos, registre decisão e só retome após aprovação.
 
 Ações físicas ou econômicas irreversíveis são proibidas por padrão; exigem simulação, limites, confirmação por ação e mecanismo de parada.
+
+Para alto/extremo, confirme o registro em `risk/` com `python tools/validate_governance.py risk <arquivo>`. Um PASS prova coerência do pacote, não recuperação executada nem autorização para retomar.

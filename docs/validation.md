@@ -10,10 +10,11 @@ O workflow `.github/workflows/governance-validation.yml` repete o gate em pull r
 python tools/validate_governance.py repo
 python tools/validate_governance.py evidence evidence/EV-exemplo.json
 python tools/validate_governance.py route validation/fixtures/routing/valid.json
+python tools/validate_governance.py risk risk/RISK-example-blocked.json
 python -m unittest discover -s tests -v
 ```
 
-`repo` verifica caminhos canônicos, leituras de overlays, contratos JSON e evidências publicadas. `evidence` valida presença, proveniência e força da conclusão. `route` valida fatos, calcula overlays aplicáveis e compara o resultado esperado quando informado.
+`repo` verifica caminhos canônicos, leituras de overlays, contratos JSON, evidências e limites de risco publicados. `evidence` valida presença, proveniência e força da conclusão. `route` valida fatos e overlays. `risk` valida autoridade, drift, destino, controles externos e recuperação sem autorizar operação.
 
 ## Semântica das classes
 

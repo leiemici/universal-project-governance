@@ -36,3 +36,5 @@ O ciclo canônico está em `docs/work-lifecycle.md`. A branch isola trabalho, ma
 Uma saída só está pronta quando evidência e revisão citam o mesmo commit. A integração cita esse mesmo commit ou uma exceção humana registrada; qualquer alteração material reabre revisão e evidência.
 
 O gate estrutural mínimo é `python tools/validate_governance.py repo`, documentado em `docs/validation.md`. Ele verifica presença, referências, overlays e registros de evidência; não substitui revisão profissional nem prova enforcement externo.
+
+Alto/extremo acrescenta `docs/risk-boundary.md`. Autor, revisor e aprovador são distintos. Rebaixamento de destino, reabertura por drift e qualquer permissão de simulador/pacote de evidência exigem decisão humana registrada; destino operacional exige enforcement e evidência externos vigentes.

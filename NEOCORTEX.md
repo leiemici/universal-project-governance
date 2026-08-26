@@ -57,6 +57,7 @@ Consolidate the repository into a coherent universal core plus conditional overl
 - `P1.02` passed QA and was physically merged as `36e6d31` on 2026-08-26.
 - `P1.03` passed QA and was physically merged as `678f57a` on 2026-08-26.
 - `P1.04` passed QA and was physically merged as `de2d85d` on 2026-08-26; `P1.05` is the next implementation unit.
+- `P1.05` passed its local QA gate on 2026-08-26; physical merge evidence is pending.
 
 ## Known gaps to resolve
 
@@ -84,10 +85,12 @@ Story `P1.03` defines the canonical task/branch/handoff lifecycle in `docs/work-
 
 Story `P1.04` adds `docs/evidence-record.schema.json`, `governance.validation.json` and a Python standard-library validator for paths, overlays, provenance and evidence strength. Its QA passed 13 unit tests, 63 generated property cases and GitHub Actions on the reviewed head; PR `#8` was physically merged as `de2d85d`. Invalid fixture/execution and review claims fail with actionable exit code. The generic npm server test remains `[N/A]` because the repository has no application runtime.
 
-Story `P1.05` next defines high/extreme external-control contracts without authorizing operations. Story `P1.06` re-runs multi-LLM and human validation only after the rules are canonical and executable.
+Story `P1.05` adds `docs/risk-boundary.md`, a portable risk-control record, domain annex templates and executable gates for authority, drift, external enforcement, provider attestation, recovery and destination changes. Its local QA passed 19 tests and 69 property cases across clinical, financial and physical scenarios. A PASS never authorizes operation.
+
+Story `P1.06` next re-runs multi-LLM and human validation after the rules became canonical and executable.
 
 ## Neocortex architecture trail
 
-The focused non-UI architecture path is complete: `init`, `arch-prd`, `create-epic`, `arch-architecture`, `arch-review` and `update-memory` were executed on 2026-08-26. P1.01's C0 gate, P1.02's context gate, P1.03's lifecycle gate and P1.04's portable validation gate are complete locally. Remaining conditions concern high/extreme external boundaries and final regression, owned by P1.05–P1.06.
+The focused non-UI architecture path is complete: `init`, `arch-prd`, `create-epic`, `arch-architecture`, `arch-review` and `update-memory` were executed on 2026-08-26. P1.01–P1.05 gates are complete locally. The remaining condition is the final multi-LLM/human regression owned by P1.06.
 
 The fixed plan's API contracts, Pact generation, API integrations, database, design system and UX stages are `[N/A]`. Security, performance, testing and infrastructure concerns were absorbed into `docs/architecture/architecture.md`; fitness functions are specified there and their portable implementation belongs to story `P1.04`. This closes the unused branches deliberately and prevents future sessions from generating fictional artifacts.

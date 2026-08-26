@@ -16,6 +16,27 @@ class GovernanceValidatorTests(unittest.TestCase):
     def load(self, relative):
         return json.loads((ROOT / relative).read_text(encoding="utf-8"))
 
+    def approved_risk(self, domain, destination):
+        record = self.load("risk/RISK-example-blocked.json")
+        annex = {"clínico": "clinical.md", "financeiro": "financial.md", "físico": "physical.md"}[domain]
+        record["domain"] = domain
+        record["destination"] = destination
+        record["required_documents"]["annex"] = f"domain-annexes/{annex}"
+        record["required_documents"]["annex_status"] = "approved-by-competent-human"
+        record["status"] = "aprovado-para-destino"
+        record["decision"]["action"] = {
+            "simulador": "allow-simulator",
+            "pacote-de-evidência": "allow-evidence-package",
+        }.get(destination, "allow-destination")
+        if destination in {"produção", "canário-shadow", "sandbox"}:
+            record["external_controls"] = [{
+                "control_id": "CTRL-1", "kind": "gateway-or-interlock",
+                "enforcement_system": "control-plane", "evidence_ref": "external://control/1",
+                "evidence_revision": "a" * 40, "valid_until": "2026-09-01T00:00:00Z",
+                "status": "verified", "provider": None,
+            }]
+        return record
+
     def test_repository_contract_is_valid(self):
         self.assertEqual([], validator.validate_repo(ROOT))
 
@@ -97,6 +118,49 @@ class GovernanceValidatorTests(unittest.TestCase):
             record["acceptance_satisfied"] = True
             errors = validator.validate_evidence(record, classification)
             self.assertTrue(any("somente 'validado'" in error for error in errors))
+
+    def test_high_risk_domain_destination_matrix(self):
+        for domain in ("clínico", "financeiro", "físico"):
+            for destination in ("produção", "sandbox", "simulador"):
+                record = self.approved_risk(domain, destination)
+                self.assertEqual([], validator.validate_risk(record, f"{domain}-{destination}", ROOT))
+
+    def test_operational_destination_requires_external_control(self):
+        record = self.approved_risk("financeiro", "produção")
+        record["external_controls"] = []
+        errors = validator.validate_risk(record, "risk", ROOT)
+        self.assertTrue(any("permanece bloqueado" in error for error in errors))
+
+    def test_documentation_is_not_enforcement(self):
+        record = self.approved_risk("físico", "sandbox")
+        record["external_controls"][0]["enforcement_system"] = "markdown"
+        errors = validator.validate_risk(record, "risk", ROOT)
+        self.assertTrue(any("não é enforcement" in error for error in errors))
+
+    def test_cumulative_drift_reopens_risk(self):
+        record = self.approved_risk("clínico", "simulador")
+        record["change"]["cumulative_delta"] = record["change"]["threshold"]
+        record["change"]["threshold_exceeded"] = True
+        record["change"]["risk_reopened"] = False
+        errors = validator.validate_risk(record, "risk", ROOT)
+        self.assertTrue(any("reabre o risco" in error for error in errors))
+
+    def test_changed_destination_requires_human_record(self):
+        record = self.approved_risk("financeiro", "simulador")
+        record["destination_basis"] = "changed"
+        errors = validator.validate_risk(record, "risk", ROOT)
+        self.assertTrue(any("rebaixamento exige" in error for error in errors))
+
+    def test_provider_control_requires_reattestation(self):
+        record = self.approved_risk("financeiro", "produção")
+        record["external_controls"][0]["provider"] = "payments-provider"
+        errors = validator.validate_risk(record, "risk", ROOT)
+        self.assertTrue(any("sem reatestado" in error for error in errors))
+        record["provider_attestations"] = [{
+            "provider": "payments-provider", "attested_at": "2026-08-26T00:00:00Z",
+            "valid_until": "2026-09-01T00:00:00Z", "evidence_ref": "external://provider/attestation",
+        }]
+        self.assertEqual([], validator.validate_risk(record, "risk", ROOT))
 
 
 if __name__ == "__main__":

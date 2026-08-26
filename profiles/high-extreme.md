@@ -10,3 +10,5 @@ Além do núcleo universal:
 - Antes de deploy: manifesto de artefato/configuração/schema, backup restaurável verificado, objetivos de recuperação, dono, limiar e janela de rollback.
 - Incidente de privacidade registra dados/titulares/processadores/jurisdição, responsável, prazo de notificação e evidência de exclusão/rotação.
 - Trabalho para ao atingir o limite total; reserva só cobre contenção, recuperação ou entrega já comprometida.
+
+O registro executável segue `docs/risk-boundary.md`. Documento preenchido não é controle aplicado e não autoriza destino. Sem evidência `external://` vigente, somente simulador ou pacote de evidência pode ser considerado por aprovador competente.

@@ -28,3 +28,4 @@ Antes de agir, repita internamente o compasso: **ALVO → PRAZO RESTANTE → DES
 - Não descreva como pronta ou integrada uma revisão feita em commit diferente da evidência e da entrega, salvo exceção humana registrada.
 - Antes de revisão ou integração, execute `python tools/validate_governance.py repo`. Corrija erros; não rebaixe falha para aviso sem decisão humana registrada.
 - Evidências persistidas seguem `docs/evidence-record.schema.json`. Fixture é sempre `simulado`; somente execução reproduzida, aceita e entregue no mesmo commit pode ser `validado`.
+- Em alto/extremo, leia `docs/risk-boundary.md` e valide o registro em `risk/`. Nunca transforme PASS documental em autorização; sem controle externo válido, mantenha operação bloqueada e ofereça apenas simulador ou pacote de evidência aprovado.
