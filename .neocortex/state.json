@@ -9,7 +9,7 @@
     "P1": {
       "id": "P1",
       "title": "Arquitetura universal convergente",
-      "status": "pr-created",
+      "status": "pr-reviewed",
       "stories": [
         "P1.01",
         "P1.02",
@@ -29,8 +29,8 @@
       "epic_id": "P1",
       "status": "memory-updated",
       "path": "docs/stories/P1.01.story.md",
-      "last_step": "step-c-10-create-pr",
-      "last_updated": "2026-08-26T16:34:00-03:00",
+      "last_step": "step-c-11-review-pr",
+      "last_updated": "2026-08-26T16:39:00-03:00",
       "pr_number": 2,
       "steps_completed": [
         "step-c-01-setup-branch",
@@ -46,7 +46,8 @@
         "step-c-07-update-project-memory",
         "step-c-08-commit-push",
         "step-c-09-sync-main",
-        "step-c-10-create-pr"
+        "step-c-10-create-pr",
+        "step-c-11-review-pr"
       ]
     },
     "P1.02": {
@@ -82,7 +83,7 @@
   },
   "active_epic": "P1",
   "active_story": "P1.01",
-  "last_updated": "2026-08-26T16:34:00-03:00",
+  "last_updated": "2026-08-26T16:39:00-03:00",
   "state_aggregate_reconciliations": [
     {
       "schemaVersion": 1,
