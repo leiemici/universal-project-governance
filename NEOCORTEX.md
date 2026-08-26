@@ -58,7 +58,7 @@ Consolidate the repository into a coherent universal core plus conditional overl
 - `P1.03` passed QA and was physically merged as `678f57a` on 2026-08-26.
 - `P1.04` passed QA and was physically merged as `de2d85d` on 2026-08-26.
 - `P1.05` passed QA and was physically merged as `6c48176` on 2026-08-26.
-- `P1.06` has a reproducible local regression: 10 niches × 3 simulated profiles, with zero live LLM calls and zero observed humans. Its empirical human gate remains explicitly unobserved pending a real study.
+- `P1.06` passed structural QA and was physically merged as `8944307` on 2026-08-26: 10 niches × 3 simulated profiles, with zero live LLM calls and zero observed humans. Its empirical human gate remains explicitly unobserved pending a real study.
 
 ## Known gaps to resolve
 

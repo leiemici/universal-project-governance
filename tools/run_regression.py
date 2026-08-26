@@ -81,7 +81,8 @@ def main() -> int:
     result = run_suite(json.loads(args.spec.read_text(encoding="utf-8")))
     text = json.dumps(result, ensure_ascii=False, indent=2) + "\n"
     if args.output:
-        args.output.write_text(text, encoding="utf-8")
+        with args.output.open("w", encoding="utf-8", newline="\n") as output:
+            output.write(text)
     else:
         print(text, end="")
     return 0 if result["suite_pass"] else 1
