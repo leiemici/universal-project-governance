@@ -85,10 +85,10 @@
     "P1.03": {
       "id": "P1.03",
       "epic_id": "P1",
-      "status": "pr-created",
+      "status": "pr-reviewed",
       "path": "docs/stories/P1.03.story.md",
-      "last_step": "step-c-10-create-pr",
-      "last_updated": "2026-08-26T17:08:00-03:00",
+      "last_step": "step-c-11-review-pr",
+      "last_updated": "2026-08-26T17:14:00-03:00",
       "pr_number": 6,
       "steps_completed": [
         "step-c-01-setup-branch",
@@ -104,7 +104,8 @@
         "step-c-07-update-project-memory",
         "step-c-08-commit-push",
         "step-c-09-sync-main",
-        "step-c-10-create-pr"
+        "step-c-10-create-pr",
+        "step-c-11-review-pr"
       ]
     },
     "P1.04": {
@@ -128,7 +129,7 @@
   },
   "active_epic": "P1",
   "active_story": "P1.03",
-  "last_updated": "2026-08-26T17:08:00-03:00",
+  "last_updated": "2026-08-26T17:14:00-03:00",
   "state_aggregate_reconciliations": [
     {
       "schemaVersion": 1,
