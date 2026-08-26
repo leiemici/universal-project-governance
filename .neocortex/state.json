@@ -9,7 +9,7 @@
     "P1": {
       "id": "P1",
       "title": "Arquitetura universal convergente",
-      "status": "pr-reviewed",
+      "status": "in-progress",
       "stories": [
         "P1.01",
         "P1.02",
@@ -20,17 +20,19 @@
       ],
       "last_updated": "2026-08-26T14:34:12.2635329-03:00",
       "total_stories": 6,
-      "completed_stories": 0
+      "completed_stories": 1
     }
   },
   "stories": {
     "P1.01": {
       "id": "P1.01",
       "epic_id": "P1",
-      "status": "memory-updated",
+      "status": "done",
       "path": "docs/stories/P1.01.story.md",
-      "last_step": "step-c-11-review-pr",
-      "last_updated": "2026-08-26T16:39:00-03:00",
+      "last_step": "step-c-12-merge-pr",
+      "last_updated": "2026-08-26T15:56:42-03:00",
+      "completed_at": "2026-08-26T15:56:42-03:00",
+      "merge_commit": "fb1e77c8c895b3825bef40b1d31142e0848c49bc",
       "pr_number": 2,
       "steps_completed": [
         "step-c-01-setup-branch",
@@ -47,7 +49,8 @@
         "step-c-08-commit-push",
         "step-c-09-sync-main",
         "step-c-10-create-pr",
-        "step-c-11-review-pr"
+        "step-c-11-review-pr",
+        "step-c-12-merge-pr"
       ]
     },
     "P1.02": {
@@ -82,8 +85,8 @@
     }
   },
   "active_epic": "P1",
-  "active_story": "P1.01",
-  "last_updated": "2026-08-26T16:39:00-03:00",
+  "active_story": null,
+  "last_updated": "2026-08-26T15:56:42-03:00",
   "state_aggregate_reconciliations": [
     {
       "schemaVersion": 1,

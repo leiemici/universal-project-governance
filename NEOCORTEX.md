@@ -52,7 +52,7 @@ Consolidate the repository into a coherent universal core plus conditional overl
 
 - `P1` — Arquitetura universal convergente: `docs/epics/epic-P1.md`
 - Stories `P1.01`–`P1.06` cover overlays, context snapshots, task/handoff lifecycle, evidence checks, high/extreme boundaries and regression validation.
-- `P1.01` passed its local QA gate on 2026-08-26; `P1.02` is the next implementation unit after physical merge.
+- `P1.01` passed QA and was physically merged as `fb1e77c` on 2026-08-26; `P1.02` is the next implementation unit.
 
 ## Known gaps to resolve
 
