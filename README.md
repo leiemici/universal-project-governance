@@ -40,4 +40,4 @@ O verificador usa somente Python 3 standard library. Ele não instala dependênc
 
 A bateria comparativa mais recente está em `docs/simulation-report-10-projects.md`. Ela registra dez projetos, três níveis de LLM, déficits observados e o limite atual da estrutura para riscos altos e extremos.
 
-A repetição após as correções declaradas está em `docs/regression-report-10-projects.md`. Ela diferencia recomendações históricas de regras realmente incorporadas e mostra quais déficits continuam abertos.
+A repetição histórica após as primeiras correções está em `docs/regression-report-10-projects.md`. A regressão executável final está em `docs/regression-report-P1.06.md`: dez nichos × três perfis simulados, com resultados reproduzíveis e sem alegar participação humana ou chamadas reais de LLM.

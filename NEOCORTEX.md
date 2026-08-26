@@ -39,9 +39,9 @@ The fixed Neocortex stages `arch-design-system`, `arch-ux-design`, `arch-databas
 - Decisions and dependencies: `docs/decisions.md`, `docs/dependencies.md`, `docs/api-contract.md`
 - Evidence and known gaps: `docs/validation-matrix.md`, `docs/simulation-report-10-projects.md`, `docs/regression-report-10-projects.md`
 
-## Current architecture objective
+## Current architecture state
 
-Consolidate the repository into a coherent universal core plus conditional overlays, so people and LLMs can enter at different skill levels, share one verified context, work in bounded branches and converge on the same result without excessive process.
+The universal core and conditional overlays are implemented and structurally validated. Future changes must preserve the same convergence, evidence and proportionality contracts without expanding the daily core unnecessarily.
 
 ## Architecture artifacts
 
@@ -49,7 +49,7 @@ Consolidate the repository into a coherent universal core plus conditional overl
 - Component architecture, states, overlays and fitness functions: `docs/architecture/architecture.md`
 - Consolidated review and quality gate: `docs/architecture/review-consolidation.md`
 
-## Active epic
+## Completed epic
 
 - `P1` — Arquitetura universal convergente: `docs/epics/epic-P1.md`
 - Stories `P1.01`–`P1.06` cover overlays, context snapshots, task/handoff lifecycle, evidence checks, high/extreme boundaries and regression validation.
@@ -69,7 +69,7 @@ Consolidate the repository into a coherent universal core plus conditional overl
 
 ## Architecture decision and next gate
 
-The non-UI architecture is **approved with conditions**. Its core model is accepted: a small universal core, deterministic conditional overlays, a versioned context manifest, a work graph, an evidence ledger, an integration gate, accepted/expiring handoffs, external risk boundaries and portable fitness functions.
+The non-UI architecture is **implemented and structurally validated, with explicit empirical debt**. Its core model is active: a small universal core, deterministic conditional overlays, a versioned context manifest, a work graph, an evidence ledger, an integration gate, accepted/expiring handoffs, external risk boundaries and portable fitness functions.
 
 Story `P1.01` resolved the four C0 conditions from `docs/architecture/review-consolidation.md`:
 

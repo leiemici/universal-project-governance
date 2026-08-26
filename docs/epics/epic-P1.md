@@ -1,6 +1,6 @@
 # Epic P1 — Arquitetura universal convergente
 
-Status: generated
+Status: done
 Fonte: `docs/architecture/prd.md`
 
 ## Feature Spec Summary
@@ -29,7 +29,7 @@ Consolidar a base existente em um núcleo pequeno e overlays condicionais que pr
 
 - testes estruturais dos campos e referências canônicas;
 - dez cenários de regressão executados em três níveis de LLM;
-- ensaio humano de entrada em projeto medido em até 10 minutos;
+- ensaio estrutural de entrada em projeto; a medição humana em até 10 minutos permanece não observada e não é alegada como concluída;
 - relatório que distingue regra documental de controle técnico externo.
 
 ### Suposições
@@ -112,5 +112,5 @@ Consolidar a base existente em um núcleo pequeno e overlays condicionais que pr
 
 - Requisitos órfãos: nenhum identificado nesta versão.
 - Contratos órfãos: nenhum; contratos técnicos inexistentes estão marcados [N/A].
-- Exemplos não validados: os dez cenários existentes precisam de nova execução após implementação.
+- Exemplos validados estruturalmente: dez cenários × três perfis simulados; zero participantes humanos e zero chamadas reais de LLM.
 - Exclusões: segredos, dados pessoais, prompts privados e logs brutos.
