@@ -26,3 +26,5 @@ Antes de agir, repita internamente o compasso: **ALVO → PRAZO RESTANTE → DES
 - Siga `docs/work-lifecycle.md`: não reivindique tarefa ou área crítica já atribuída; respeite branch e caminhos permitidos.
 - Um handoff `oferecido` não transfere propriedade. Só execute como novo dono após aceite registrado pelo receptor e integrador; handoff expirado exige escalonamento.
 - Não descreva como pronta ou integrada uma revisão feita em commit diferente da evidência e da entrega, salvo exceção humana registrada.
+- Antes de revisão ou integração, execute `python tools/validate_governance.py repo`. Corrija erros; não rebaixe falha para aviso sem decisão humana registrada.
+- Evidências persistidas seguem `docs/evidence-record.schema.json`. Fixture é sempre `simulado`; somente execução reproduzida, aceita e entregue no mesmo commit pode ser `validado`.

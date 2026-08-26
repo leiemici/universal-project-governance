@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "evidence_id": "EV-invalid-review",
+  "task_id": "T-invalid",
+  "classification": "validado",
+  "subject": "Execução sem revisão",
+  "provenance": {
+    "source_kind": "repository",
+    "source_ref": "main",
+    "collected_at": "2026-08-26T16:45:00-03:00",
+    "coverage": "caso principal",
+    "age_at_validation": "imediata",
+    "transformations": [],
+    "limitations": ["amostra única"]
+  },
+  "execution": {
+    "environment": "local",
+    "command_or_case": "python tools/validate_governance.py repo",
+    "result": "pass",
+    "commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "reproducible": true
+  },
+  "review": null,
+  "delivery_commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "acceptance_satisfied": true
+}

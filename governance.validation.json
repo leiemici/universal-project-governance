@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "canonical_paths": [
+    "PROJECT_CHARTER.md",
+    "CONTEXT.md",
+    "GOVERNANCE.md",
+    "TEAM.md",
+    "docs/overlay-router.md",
+    "docs/context-registry.md",
+    "docs/context-manifest.schema.json",
+    "docs/work-lifecycle.md",
+    "docs/evidence-record.schema.json",
+    "docs/tasks.md",
+    "docs/handoff.md",
+    "docs/decisions.md",
+    "overlays.json"
+  ],
+  "evidence_globs": ["evidence/*.json"],
+  "overlay_manifest": "overlays.json"
+}

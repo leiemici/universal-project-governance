@@ -55,11 +55,11 @@ Consolidate the repository into a coherent universal core plus conditional overl
 - Stories `P1.01`–`P1.06` cover overlays, context snapshots, task/handoff lifecycle, evidence checks, high/extreme boundaries and regression validation.
 - `P1.01` passed QA and was physically merged as `fb1e77c` on 2026-08-26.
 - `P1.02` passed QA and was physically merged as `36e6d31` on 2026-08-26.
-- `P1.03` passed QA and was physically merged as `678f57a` on 2026-08-26; `P1.04` is the next implementation unit.
+- `P1.03` passed QA and was physically merged as `678f57a` on 2026-08-26.
+- `P1.04` passed its local QA gate on 2026-08-26; physical merge evidence is pending.
 
 ## Known gaps to resolve
 
-- Data outputs do not universally require source, collection time, coverage and age.
 - Multi-LLM identity and context are recorded, but an independence group remains a declaration rather than proof of independent evidence or incentives.
 - High/extreme gates remain documentary and require domain-specific technical enforcement outside this repository.
 - Regression reports contain recommendations that have not all migrated into canonical templates and rules.
@@ -81,10 +81,12 @@ Story `P1.02` adds a portable JSON Schema, task-bound context registry, generic 
 
 Story `P1.03` defines the canonical task/branch/handoff lifecycle in `docs/work-lifecycle.md`: one active owner, authorized transitions, offered versus accepted transfer, expiry/escalation and one commit for evidence, review and delivery. Its QA exercised 18 transition edges, 16 handoff combinations, three critical-ownership cases and 27 commit triples without divergence; PR `#6` was physically merged as `678f57a`. The generic npm server test is `[N/A]`; the persistent portable validator remains P1.04.
 
-Story `P1.04` next implements provenance and structural checks. Story `P1.05` defines high/extreme external-control contracts without authorizing operations. Story `P1.06` re-runs multi-LLM and human validation only after the rules are canonical and executable.
+Story `P1.04` adds `docs/evidence-record.schema.json`, `governance.validation.json` and a Python standard-library validator for paths, overlays, provenance and evidence strength. Its local QA passed 13 unit tests and 63 generated property cases; invalid fixture/execution and review claims fail with actionable exit code. The generic npm server test remains `[N/A]` because the repository has no application runtime.
+
+Story `P1.05` next defines high/extreme external-control contracts without authorizing operations. Story `P1.06` re-runs multi-LLM and human validation only after the rules are canonical and executable.
 
 ## Neocortex architecture trail
 
-The focused non-UI architecture path is complete: `init`, `arch-prd`, `create-epic`, `arch-architecture`, `arch-review` and `update-memory` were executed on 2026-08-26. The review result remains approved with conditions until P1.04 implements portable structural checks; P1.01's C0 gate, P1.02's context gate and P1.03's lifecycle gate are complete locally.
+The focused non-UI architecture path is complete: `init`, `arch-prd`, `create-epic`, `arch-architecture`, `arch-review` and `update-memory` were executed on 2026-08-26. P1.01's C0 gate, P1.02's context gate, P1.03's lifecycle gate and P1.04's portable validation gate are complete locally. Remaining conditions concern high/extreme external boundaries and final regression, owned by P1.05–P1.06.
 
 The fixed plan's API contracts, Pact generation, API integrations, database, design system and UX stages are `[N/A]`. Security, performance, testing and infrastructure concerns were absorbed into `docs/architecture/architecture.md`; fitness functions are specified there and their portable implementation belongs to story `P1.04`. This closes the unused branches deliberately and prevents future sessions from generating fictional artifacts.

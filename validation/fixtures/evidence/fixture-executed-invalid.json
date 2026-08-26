@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "evidence_id": "EV-invalid-fixture",
+  "task_id": "T-invalid",
+  "classification": "executado",
+  "subject": "Fixture indevidamente apresentada como execução",
+  "provenance": {
+    "source_kind": "fixture",
+    "source_ref": "fixture.json",
+    "collected_at": "2026-08-26T16:45:00-03:00",
+    "coverage": "fixture",
+    "age_at_validation": "imediata",
+    "transformations": [],
+    "limitations": ["não executada no destino"]
+  },
+  "execution": {
+    "environment": "fixture",
+    "command_or_case": "caso sintético",
+    "result": "texto convincente",
+    "commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "reproducible": true
+  },
+  "review": null,
+  "delivery_commit": null,
+  "acceptance_satisfied": false
+}

@@ -1,0 +1,17 @@
+{
+  "facts": {
+    "prazo_total_horas": 4,
+    "risco": "alto",
+    "llms_ativas": 2,
+    "provedores_llm_ativos": 2,
+    "dados": "públicos",
+    "dependencia": "nenhuma",
+    "contribuidores_ativos": 3,
+    "suplente_ativo": true,
+    "efeito_dominio": "nenhum",
+    "destino_operacional": false,
+    "privilegio_administrativo": false,
+    "acao_irreversivel": false
+  },
+  "expected_active_overlays": ["multi-llm", "alto-extremo"]
+}
