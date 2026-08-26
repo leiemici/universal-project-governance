@@ -40,6 +40,18 @@ class GovernanceValidatorTests(unittest.TestCase):
     def test_repository_contract_is_valid(self):
         self.assertEqual([], validator.validate_repo(ROOT))
 
+    def test_regression_result_cannot_claim_unobserved_humans(self):
+        result = self.load("validation/regression-results-P1.06.json")
+        result["observed_humans"] = 1
+        errors = validator.validate_regression(result, "regression")
+        self.assertTrue(any("não alegue participação humana" in error for error in errors))
+
+    def test_regression_result_requires_complete_cross_product(self):
+        result = self.load("validation/regression-results-P1.06.json")
+        result["runs"][-1] = copy.deepcopy(result["runs"][0])
+        errors = validator.validate_regression(result, "regression")
+        self.assertTrue(any("matriz cenário/perfil incompleta" in error for error in errors))
+
     def test_simulated_fixture_is_valid(self):
         record = self.load("evidence/EV-P1.04-example.json")
         self.assertEqual([], validator.validate_evidence(record, "fixture"))

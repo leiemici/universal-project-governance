@@ -15,9 +15,14 @@
     "docs/tasks.md",
     "docs/handoff.md",
     "docs/decisions.md",
-    "overlays.json"
+    "overlays.json",
+    "validation/regression-scenarios-P1.06.json",
+    "validation/regression-results-P1.06.json",
+    "docs/regression-report-P1.06.md"
   ],
   "evidence_globs": ["evidence/*.json"],
   "risk_globs": ["risk/*.json"],
-  "overlay_manifest": "overlays.json"
+  "overlay_manifest": "overlays.json",
+  "regression_spec": "validation/regression-scenarios-P1.06.json",
+  "regression_result": "validation/regression-results-P1.06.json"
 }

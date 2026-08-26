@@ -27,6 +27,11 @@ RISK_REQUIRED = {
     "required_documents", "authority", "change", "external_controls", "provider_attestations",
     "recovery", "destination_change", "decision",
 }
+REGRESSION_REQUIRED = {
+    "schema_version", "evidence_class", "method", "live_llm_calls", "observed_humans",
+    "human_onboarding_claim", "scenario_count", "profile_count", "run_count", "converged_runs",
+    "all_simulated_onboarding_under_10_minutes", "human_onboarding_under_10_minutes", "suite_pass", "runs",
+}
 
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8")
@@ -345,6 +350,43 @@ def validate_route(root: Path, path: Path) -> list[str]:
     return errors
 
 
+def validate_regression(data: Any, label: str) -> list[str]:
+    """Reject regression artifacts that overstate simulated evidence."""
+    errors: list[str] = []
+    if not require_fields(data, REGRESSION_REQUIRED, label, errors):
+        return errors
+    if data["schema_version"] != 1:
+        errors.append(f"{label}.schema_version: esperado 1")
+    if data["evidence_class"] != "simulado":
+        errors.append(f"{label}.evidence_class: deve permanecer 'simulado'")
+    if data["live_llm_calls"] != 0:
+        errors.append(f"{label}.live_llm_calls: esta suíte estrutural deve registrar zero")
+    if data["observed_humans"] != 0:
+        errors.append(f"{label}.observed_humans: não alegue participação humana não observada")
+    if data["human_onboarding_claim"] != "not-observed" or data["human_onboarding_under_10_minutes"] is not None:
+        errors.append(f"{label}: onboarding humano deve permanecer explicitamente não observado")
+    if (data["scenario_count"], data["profile_count"], data["run_count"]) != (10, 3, 30):
+        errors.append(f"{label}: esperado 10 cenários, 3 perfis e 30 execuções")
+    runs = data["runs"]
+    if not isinstance(runs, list) or len(runs) != 30:
+        errors.append(f"{label}.runs: exatamente 30 execuções obrigatórias")
+        return errors
+    pairs = {(run.get("scenario_id"), run.get("profile")) for run in runs if isinstance(run, dict)}
+    if len(pairs) != 30:
+        errors.append(f"{label}.runs: matriz cenário/perfil incompleta ou duplicada")
+    for index, run in enumerate(runs):
+        if not isinstance(run, dict):
+            errors.append(f"{label}.runs[{index}]: objeto obrigatório")
+            continue
+        if run.get("evidence_class") != "simulado" or run.get("onboarding_human_observed") is not False:
+            errors.append(f"{label}.runs[{index}]: execução deve permanecer simulação sem observação humana")
+        if run.get("direction_preserved") is not True or run.get("risk_preserved") is not True:
+            errors.append(f"{label}.runs[{index}]: direção e risco não convergiram")
+    if data["converged_runs"] != 30 or data["suite_pass"] is not True:
+        errors.append(f"{label}: suíte não convergiu integralmente")
+    return errors
+
+
 def validate_repo(root: Path) -> list[str]:
     errors: list[str] = []
     config = read_json(root / "governance.validation.json", errors)
@@ -371,6 +413,11 @@ def validate_repo(root: Path) -> list[str]:
     read_json(root / "docs/evidence-record.schema.json", errors)
     read_json(root / "docs/risk-control-record.schema.json", errors)
     read_json(root / "docs/context-manifest.schema.json", errors)
+    regression_path = config.get("regression_result")
+    if regression_path:
+        result = read_json(root / regression_path, errors)
+        if result is not None:
+            errors.extend(validate_regression(result, regression_path))
     for pattern in config.get("evidence_globs", []):
         for filename in sorted(glob.glob(str(root / pattern))):
             path = Path(filename)

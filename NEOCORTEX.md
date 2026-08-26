@@ -57,14 +57,15 @@ Consolidate the repository into a coherent universal core plus conditional overl
 - `P1.02` passed QA and was physically merged as `36e6d31` on 2026-08-26.
 - `P1.03` passed QA and was physically merged as `678f57a` on 2026-08-26.
 - `P1.04` passed QA and was physically merged as `de2d85d` on 2026-08-26.
-- `P1.05` passed QA and was physically merged as `6c48176` on 2026-08-26; `P1.06` is the next implementation unit.
+- `P1.05` passed QA and was physically merged as `6c48176` on 2026-08-26.
+- `P1.06` has a reproducible local regression: 10 niches × 3 simulated profiles, with zero live LLM calls and zero observed humans. Its empirical human gate remains explicitly unobserved pending a real study.
 
 ## Known gaps to resolve
 
 - Multi-LLM identity and context are recorded, but an independence group remains a declaration rather than proof of independent evidence or incentives.
 - `Governance validation` runs on PR and `main`, but branch protection does not yet require the check.
 - High/extreme gates remain documentary and require domain-specific technical enforcement outside this repository.
-- Regression reports contain recommendations that have not all migrated into canonical templates and rules.
+- The structural regression is executable, but ease of use by real people and behavior of live LLM providers remain empirical validation debt.
 
 ## Architecture decision and next gate
 
@@ -87,10 +88,10 @@ Story `P1.04` adds `docs/evidence-record.schema.json`, `governance.validation.js
 
 Story `P1.05` adds `docs/risk-boundary.md`, a portable risk-control record, domain annex templates and executable gates for authority, drift, external enforcement, provider attestation, recovery and destination changes. Its QA passed 19 tests, 69 property cases and GitHub Actions; PR `#10` was physically merged as `6c48176`. A PASS never authorizes operation.
 
-Story `P1.06` next re-runs multi-LLM and human validation after the rules became canonical and executable.
+Story `P1.06` adds a deterministic structural regression over ten niches and three declared personas. Local QA produced 30/30 convergent simulated runs and safe blocking/rebasing for five high/extreme scenarios. This does not represent live model inference or human participation: both counts are zero, and onboarding under ten minutes remains not observed. The executable suite prevents future reports from silently converting those simulated results into human or provider evidence.
 
 ## Neocortex architecture trail
 
-The focused non-UI architecture path is complete: `init`, `arch-prd`, `create-epic`, `arch-architecture`, `arch-review` and `update-memory` were executed on 2026-08-26. P1.01–P1.05 gates are complete locally. The remaining condition is the final multi-LLM/human regression owned by P1.06.
+The focused non-UI architecture path is complete: `init`, `arch-prd`, `create-epic`, `arch-architecture`, `arch-review` and `update-memory` were executed on 2026-08-26. P1.01–P1.05 gates are complete. P1.06 implements the structural regression; real-human onboarding and live-provider comparison remain a deliberately separate empirical checkpoint.
 
 The fixed plan's API contracts, Pact generation, API integrations, database, design system and UX stages are `[N/A]`. Security, performance, testing and infrastructure concerns were absorbed into `docs/architecture/architecture.md`; fitness functions are specified there and their portable implementation belongs to story `P1.04`. This closes the unused branches deliberately and prevents future sessions from generating fictional artifacts.

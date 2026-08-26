@@ -1,0 +1,479 @@
+{
+  "schema_version": 1,
+  "evidence_class": "simulado",
+  "method": "deterministic structural personas; no live provider inference",
+  "live_llm_calls": 0,
+  "observed_humans": 0,
+  "human_onboarding_claim": "not-observed",
+  "scenario_count": 10,
+  "profile_count": 3,
+  "run_count": 30,
+  "converged_runs": 30,
+  "all_simulated_onboarding_under_10_minutes": true,
+  "human_onboarding_under_10_minutes": null,
+  "suite_pass": true,
+  "runs": [
+    {
+      "scenario_id": "S01",
+      "profile": "simples",
+      "profile_behavior": "segue instrução literal e checklist explícito",
+      "evidence_class": "simulado",
+      "decisions": [
+        "redirect-or-swap",
+        "cut-or-fallback",
+        "reject-claim"
+      ],
+      "direction_preserved": true,
+      "risk_preserved": true,
+      "simulated_onboarding_seconds": 480,
+      "onboarding_human_observed": false,
+      "safe_learning_destination": "demo com fixture"
+    },
+    {
+      "scenario_id": "S01",
+      "profile": "intermediária",
+      "profile_behavior": "relaciona contrato, dependência e fallback",
+      "evidence_class": "simulado",
+      "decisions": [
+        "redirect-or-swap",
+        "cut-or-fallback",
+        "reject-claim"
+      ],
+      "direction_preserved": true,
+      "risk_preserved": true,
+      "simulated_onboarding_seconds": 300,
+      "onboarding_human_observed": false,
+      "safe_learning_destination": "demo com fixture"
+    },
+    {
+      "scenario_id": "S01",
+      "profile": "forte",
+      "profile_behavior": "antecipa conflito e explica trade-off",
+      "evidence_class": "simulado",
+      "decisions": [
+        "redirect-or-swap",
+        "cut-or-fallback",
+        "reject-claim"
+      ],
+      "direction_preserved": true,
+      "risk_preserved": true,
+      "simulated_onboarding_seconds": 180,
+      "onboarding_human_observed": false,
+      "safe_learning_destination": "demo com fixture"
+    },
+    {
+      "scenario_id": "S02",
+      "profile": "simples",
+      "profile_behavior": "segue instrução literal e checklist explícito",
+      "evidence_class": "simulado",
+      "decisions": [
+        "clarify-minimum",
+        "redirect-or-swap"
+      ],
+      "direction_preserved": true,
+      "risk_preserved": true,
+      "simulated_onboarding_seconds": 480,
+      "onboarding_human_observed": false,
+      "safe_learning_destination": "preview"
+    },
+    {
+      "scenario_id": "S02",
+      "profile": "intermediária",
+      "profile_behavior": "relaciona contrato, dependência e fallback",
+      "evidence_class": "simulado",
+      "decisions": [
+        "clarify-minimum",
+        "redirect-or-swap"
+      ],
+      "direction_preserved": true,
+      "risk_preserved": true,
+      "simulated_onboarding_seconds": 300,
+      "onboarding_human_observed": false,
+      "safe_learning_destination": "preview"
+    },
+    {
+      "scenario_id": "S02",
+      "profile": "forte",
+      "profile_behavior": "antecipa conflito e explica trade-off",
+      "evidence_class": "simulado",
+      "decisions": [
+        "clarify-minimum",
+        "redirect-or-swap"
+      ],
+      "direction_preserved": true,
+      "risk_preserved": true,
+      "simulated_onboarding_seconds": 180,
+      "onboarding_human_observed": false,
+      "safe_learning_destination": "preview"
+    },
+    {
+      "scenario_id": "S03",
+      "profile": "simples",
+      "profile_behavior": "segue instrução literal e checklist explícito",
+      "evidence_class": "simulado",
+      "decisions": [
+        "reject-claim",
+        "block-integration"
+      ],
+      "direction_preserved": true,
+      "risk_preserved": true,
+      "simulated_onboarding_seconds": 480,
+      "onboarding_human_observed": false,
+      "safe_learning_destination": "fixture local"
+    },
+    {
+      "scenario_id": "S03",
+      "profile": "intermediária",
+      "profile_behavior": "relaciona contrato, dependência e fallback",
+      "evidence_class": "simulado",
+      "decisions": [
+        "reject-claim",
+        "block-integration"
+      ],
+      "direction_preserved": true,
+      "risk_preserved": true,
+      "simulated_onboarding_seconds": 300,
+      "onboarding_human_observed": false,
+      "safe_learning_destination": "fixture local"
+    },
+    {
+      "scenario_id": "S03",
+      "profile": "forte",
+      "profile_behavior": "antecipa conflito e explica trade-off",
+      "evidence_class": "simulado",
+      "decisions": [
+        "reject-claim",
+        "block-integration"
+      ],
+      "direction_preserved": true,
+      "risk_preserved": true,
+      "simulated_onboarding_seconds": 180,
+      "onboarding_human_observed": false,
+      "safe_learning_destination": "fixture local"
+    },
+    {
+      "scenario_id": "S04",
+      "profile": "simples",
+      "profile_behavior": "segue instrução literal e checklist explícito",
+      "evidence_class": "simulado",
+      "decisions": [
+        "escalate-handoff",
+        "guided-reentry"
+      ],
+      "direction_preserved": true,
+      "risk_preserved": true,
+      "simulated_onboarding_seconds": 480,
+      "onboarding_human_observed": false,
+      "safe_learning_destination": "homologação"
+    },
+    {
+      "scenario_id": "S04",
+      "profile": "intermediária",
+      "profile_behavior": "relaciona contrato, dependência e fallback",
+      "evidence_class": "simulado",
+      "decisions": [
+        "escalate-handoff",
+        "guided-reentry"
+      ],
+      "direction_preserved": true,
+      "risk_preserved": true,
+      "simulated_onboarding_seconds": 300,
+      "onboarding_human_observed": false,
+      "safe_learning_destination": "homologação"
+    },
+    {
+      "scenario_id": "S04",
+      "profile": "forte",
+      "profile_behavior": "antecipa conflito e explica trade-off",
+      "evidence_class": "simulado",
+      "decisions": [
+        "escalate-handoff",
+        "guided-reentry"
+      ],
+      "direction_preserved": true,
+      "risk_preserved": true,
+      "simulated_onboarding_seconds": 180,
+      "onboarding_human_observed": false,
+      "safe_learning_destination": "homologação"
+    },
+    {
+      "scenario_id": "S05",
+      "profile": "simples",
+      "profile_behavior": "segue instrução literal e checklist explícito",
+      "evidence_class": "simulado",
+      "decisions": [
+        "block-operation",
+        "reopen-risk"
+      ],
+      "direction_preserved": true,
+      "risk_preserved": true,
+      "simulated_onboarding_seconds": 480,
+      "onboarding_human_observed": false,
+      "safe_learning_destination": "simulador"
+    },
+    {
+      "scenario_id": "S05",
+      "profile": "intermediária",
+      "profile_behavior": "relaciona contrato, dependência e fallback",
+      "evidence_class": "simulado",
+      "decisions": [
+        "block-operation",
+        "reopen-risk"
+      ],
+      "direction_preserved": true,
+      "risk_preserved": true,
+      "simulated_onboarding_seconds": 300,
+      "onboarding_human_observed": false,
+      "safe_learning_destination": "simulador"
+    },
+    {
+      "scenario_id": "S05",
+      "profile": "forte",
+      "profile_behavior": "antecipa conflito e explica trade-off",
+      "evidence_class": "simulado",
+      "decisions": [
+        "block-operation",
+        "reopen-risk"
+      ],
+      "direction_preserved": true,
+      "risk_preserved": true,
+      "simulated_onboarding_seconds": 180,
+      "onboarding_human_observed": false,
+      "safe_learning_destination": "simulador"
+    },
+    {
+      "scenario_id": "S06",
+      "profile": "simples",
+      "profile_behavior": "segue instrução literal e checklist explícito",
+      "evidence_class": "simulado",
+      "decisions": [
+        "reject-claim",
+        "reject-claim"
+      ],
+      "direction_preserved": true,
+      "risk_preserved": true,
+      "simulated_onboarding_seconds": 480,
+      "onboarding_human_observed": false,
+      "safe_learning_destination": "relatório estimado"
+    },
+    {
+      "scenario_id": "S06",
+      "profile": "intermediária",
+      "profile_behavior": "relaciona contrato, dependência e fallback",
+      "evidence_class": "simulado",
+      "decisions": [
+        "reject-claim",
+        "reject-claim"
+      ],
+      "direction_preserved": true,
+      "risk_preserved": true,
+      "simulated_onboarding_seconds": 300,
+      "onboarding_human_observed": false,
+      "safe_learning_destination": "relatório estimado"
+    },
+    {
+      "scenario_id": "S06",
+      "profile": "forte",
+      "profile_behavior": "antecipa conflito e explica trade-off",
+      "evidence_class": "simulado",
+      "decisions": [
+        "reject-claim",
+        "reject-claim"
+      ],
+      "direction_preserved": true,
+      "risk_preserved": true,
+      "simulated_onboarding_seconds": 180,
+      "onboarding_human_observed": false,
+      "safe_learning_destination": "relatório estimado"
+    },
+    {
+      "scenario_id": "S07",
+      "profile": "simples",
+      "profile_behavior": "segue instrução literal e checklist explícito",
+      "evidence_class": "simulado",
+      "decisions": [
+        "block-operation",
+        "stop-integration"
+      ],
+      "direction_preserved": true,
+      "risk_preserved": true,
+      "simulated_onboarding_seconds": 480,
+      "onboarding_human_observed": false,
+      "safe_learning_destination": "simulador"
+    },
+    {
+      "scenario_id": "S07",
+      "profile": "intermediária",
+      "profile_behavior": "relaciona contrato, dependência e fallback",
+      "evidence_class": "simulado",
+      "decisions": [
+        "block-operation",
+        "stop-integration"
+      ],
+      "direction_preserved": true,
+      "risk_preserved": true,
+      "simulated_onboarding_seconds": 300,
+      "onboarding_human_observed": false,
+      "safe_learning_destination": "simulador"
+    },
+    {
+      "scenario_id": "S07",
+      "profile": "forte",
+      "profile_behavior": "antecipa conflito e explica trade-off",
+      "evidence_class": "simulado",
+      "decisions": [
+        "block-operation",
+        "stop-integration"
+      ],
+      "direction_preserved": true,
+      "risk_preserved": true,
+      "simulated_onboarding_seconds": 180,
+      "onboarding_human_observed": false,
+      "safe_learning_destination": "simulador"
+    },
+    {
+      "scenario_id": "S08",
+      "profile": "simples",
+      "profile_behavior": "segue instrução literal e checklist explícito",
+      "evidence_class": "simulado",
+      "decisions": [
+        "block-operation",
+        "reopen-risk",
+        "reject-claim"
+      ],
+      "direction_preserved": true,
+      "risk_preserved": true,
+      "simulated_onboarding_seconds": 480,
+      "onboarding_human_observed": false,
+      "safe_learning_destination": "shadow/simulador"
+    },
+    {
+      "scenario_id": "S08",
+      "profile": "intermediária",
+      "profile_behavior": "relaciona contrato, dependência e fallback",
+      "evidence_class": "simulado",
+      "decisions": [
+        "block-operation",
+        "reopen-risk",
+        "reject-claim"
+      ],
+      "direction_preserved": true,
+      "risk_preserved": true,
+      "simulated_onboarding_seconds": 300,
+      "onboarding_human_observed": false,
+      "safe_learning_destination": "shadow/simulador"
+    },
+    {
+      "scenario_id": "S08",
+      "profile": "forte",
+      "profile_behavior": "antecipa conflito e explica trade-off",
+      "evidence_class": "simulado",
+      "decisions": [
+        "block-operation",
+        "reopen-risk",
+        "reject-claim"
+      ],
+      "direction_preserved": true,
+      "risk_preserved": true,
+      "simulated_onboarding_seconds": 180,
+      "onboarding_human_observed": false,
+      "safe_learning_destination": "shadow/simulador"
+    },
+    {
+      "scenario_id": "S09",
+      "profile": "simples",
+      "profile_behavior": "segue instrução literal e checklist explícito",
+      "evidence_class": "simulado",
+      "decisions": [
+        "reopen-risk",
+        "block-operation",
+        "stop-integration"
+      ],
+      "direction_preserved": true,
+      "risk_preserved": true,
+      "simulated_onboarding_seconds": 480,
+      "onboarding_human_observed": false,
+      "safe_learning_destination": "sandbox sem dinheiro real"
+    },
+    {
+      "scenario_id": "S09",
+      "profile": "intermediária",
+      "profile_behavior": "relaciona contrato, dependência e fallback",
+      "evidence_class": "simulado",
+      "decisions": [
+        "reopen-risk",
+        "block-operation",
+        "stop-integration"
+      ],
+      "direction_preserved": true,
+      "risk_preserved": true,
+      "simulated_onboarding_seconds": 300,
+      "onboarding_human_observed": false,
+      "safe_learning_destination": "sandbox sem dinheiro real"
+    },
+    {
+      "scenario_id": "S09",
+      "profile": "forte",
+      "profile_behavior": "antecipa conflito e explica trade-off",
+      "evidence_class": "simulado",
+      "decisions": [
+        "reopen-risk",
+        "block-operation",
+        "stop-integration"
+      ],
+      "direction_preserved": true,
+      "risk_preserved": true,
+      "simulated_onboarding_seconds": 180,
+      "onboarding_human_observed": false,
+      "safe_learning_destination": "sandbox sem dinheiro real"
+    },
+    {
+      "scenario_id": "S10",
+      "profile": "simples",
+      "profile_behavior": "segue instrução literal e checklist explícito",
+      "evidence_class": "simulado",
+      "decisions": [
+        "block-operation",
+        "cut-or-fallback",
+        "escalate-handoff"
+      ],
+      "direction_preserved": true,
+      "risk_preserved": true,
+      "simulated_onboarding_seconds": 480,
+      "onboarding_human_observed": false,
+      "safe_learning_destination": "digital twin"
+    },
+    {
+      "scenario_id": "S10",
+      "profile": "intermediária",
+      "profile_behavior": "relaciona contrato, dependência e fallback",
+      "evidence_class": "simulado",
+      "decisions": [
+        "block-operation",
+        "cut-or-fallback",
+        "escalate-handoff"
+      ],
+      "direction_preserved": true,
+      "risk_preserved": true,
+      "simulated_onboarding_seconds": 300,
+      "onboarding_human_observed": false,
+      "safe_learning_destination": "digital twin"
+    },
+    {
+      "scenario_id": "S10",
+      "profile": "forte",
+      "profile_behavior": "antecipa conflito e explica trade-off",
+      "evidence_class": "simulado",
+      "decisions": [
+        "block-operation",
+        "cut-or-fallback",
+        "escalate-handoff"
+      ],
+      "direction_preserved": true,
+      "risk_preserved": true,
+      "simulated_onboarding_seconds": 180,
+      "onboarding_human_observed": false,
+      "safe_learning_destination": "digital twin"
+    }
+  ]
+}
