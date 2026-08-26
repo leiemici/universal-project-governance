@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "evidence_class": "simulado",
+  "live_llm_calls": 0,
+  "observed_humans": 0,
+  "profiles": [
+    { "id": "simples", "behavior": "segue instrução literal e checklist explícito", "simulated_onboarding_seconds": 480 },
+    { "id": "intermediária", "behavior": "relaciona contrato, dependência e fallback", "simulated_onboarding_seconds": 300 },
+    { "id": "forte", "behavior": "antecipa conflito e explica trade-off", "simulated_onboarding_seconds": 180 }
+  ],
+  "scenarios": [
+    {
+      "id": "S01", "niche": "hackathon agrícola", "duration": "4h", "risk": "médio", "domain": "nenhum", "destination": "demo",
+      "team": ["especialista de integração", "intermediário de dados", "iniciante de revisão visual"],
+      "injections": ["scope-creep", "checkpoint-overrun", "false-evidence"],
+      "expected_decisions": ["redirect-or-swap", "cut-or-fallback", "reject-claim"], "safe_learning_destination": "demo com fixture"
+    },
+    {
+      "id": "S02", "niche": "landing page acessível", "duration": "2h", "risk": "baixo", "domain": "nenhum", "destination": "preview",
+      "team": ["intermediário frontend", "iniciante de conteúdo", "iniciante de revisão visual"],
+      "injections": ["ambiguous-input", "scope-creep"],
+      "expected_decisions": ["clarify-minimum", "redirect-or-swap"], "safe_learning_destination": "preview"
+    },
+    {
+      "id": "S03", "niche": "estoque escolar", "duration": "dias", "risk": "médio", "domain": "nenhum", "destination": "homologação",
+      "team": ["especialista de regras", "intermediário backend", "iniciante de extração"],
+      "injections": ["missing-provenance", "broken-canonical"],
+      "expected_decisions": ["reject-claim", "block-integration"], "safe_learning_destination": "fixture local"
+    },
+    {
+      "id": "S04", "niche": "agenda de salão", "duration": "dias", "risk": "médio", "domain": "nenhum", "destination": "homologação",
+      "team": ["intermediário full-stack", "iniciante de testes", "revisor remoto"],
+      "injections": ["expired-handoff", "late-joiner"],
+      "expected_decisions": ["escalate-handoff", "guided-reentry"], "safe_learning_destination": "homologação"
+    },
+    {
+      "id": "S05", "niche": "doações para ONG", "duration": "dias", "risk": "alto", "domain": "financeiro", "destination": "produção",
+      "team": ["especialista financeiro", "intermediário de integração", "iniciante de conteúdo"],
+      "injections": ["high-risk-no-control", "provider-drift"],
+      "expected_decisions": ["block-operation", "reopen-risk"], "safe_learning_destination": "simulador"
+    },
+    {
+      "id": "S06", "niche": "recomendador de preços", "duration": "dias", "risk": "médio", "domain": "nenhum", "destination": "relatório",
+      "team": ["especialista de dados", "intermediário Python", "iniciante de extração"],
+      "injections": ["missing-provenance", "false-evidence"],
+      "expected_decisions": ["reject-claim", "reject-claim"], "safe_learning_destination": "relatório estimado"
+    },
+    {
+      "id": "S07", "niche": "irrigação IoT", "duration": "dias", "risk": "alto", "domain": "físico", "destination": "sandbox",
+      "team": ["especialista OT", "intermediário IoT", "iniciante de checklist"],
+      "injections": ["high-risk-no-control", "concurrent-contract"],
+      "expected_decisions": ["block-operation", "stop-integration"], "safe_learning_destination": "simulador"
+    },
+    {
+      "id": "S08", "niche": "triagem clínica", "duration": "semanas", "risk": "extremo", "domain": "clínico", "destination": "produção",
+      "team": ["especialista clínico", "especialista técnico", "iniciante de revisão de conteúdo"],
+      "injections": ["high-risk-no-control", "scope-drift", "false-evidence"],
+      "expected_decisions": ["block-operation", "reopen-risk", "reject-claim"], "safe_learning_destination": "shadow/simulador"
+    },
+    {
+      "id": "S09", "niche": "pagamentos recorrentes", "duration": "semanas", "risk": "extremo", "domain": "financeiro", "destination": "produção",
+      "team": ["especialista financeiro", "especialista de segurança", "intermediário backend", "iniciante QA"],
+      "injections": ["provider-drift", "high-risk-no-control", "concurrent-contract"],
+      "expected_decisions": ["reopen-risk", "block-operation", "stop-integration"], "safe_learning_destination": "sandbox sem dinheiro real"
+    },
+    {
+      "id": "S10", "niche": "controle industrial", "duration": "semanas", "risk": "extremo", "domain": "físico", "destination": "produção",
+      "team": ["especialista OT", "especialista safety", "intermediário de integração", "iniciante de evidência"],
+      "injections": ["high-risk-no-control", "checkpoint-overrun", "expired-handoff"],
+      "expected_decisions": ["block-operation", "cut-or-fallback", "escalate-handoff"], "safe_learning_destination": "digital twin"
+    }
+  ]
+}
