@@ -56,7 +56,7 @@ Consolidate the repository into a coherent universal core plus conditional overl
 - `P1.01` passed QA and was physically merged as `fb1e77c` on 2026-08-26.
 - `P1.02` passed QA and was physically merged as `36e6d31` on 2026-08-26.
 - `P1.03` passed QA and was physically merged as `678f57a` on 2026-08-26.
-- `P1.04` passed QA and was physically merged as `de2d85d` on 2026-08-26; `P1.05` is the next implementation unit.
+- `P1.04` passed QA and was physically merged as `de2d85d` on 2026-08-26.
 - `P1.05` passed its local QA gate on 2026-08-26; physical merge evidence is pending.
 
 ## Known gaps to resolve
