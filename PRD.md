@@ -1,6 +1,8 @@
-# PRD — entendimento do projeto
+# PRD da instância — template preenchível
 
-Este documento é sintetizado da conversa inicial. Ele preserva contexto; não é uma fila de tarefas. Não repita perguntas já respondidas: marque lacunas que realmente mudam o resultado.
+Este arquivo é preenchido para cada projeto criado a partir desta base. Ele é sintetizado da conversa inicial, preserva contexto e não é uma fila de tarefas. Não confunda com `docs/architecture/prd.md`, que especifica o próprio Universal Project Governance e não deve ser sobrescrito durante o intake.
+
+Não repita perguntas já respondidas: marque lacunas que realmente mudam o resultado.
 
 ## Problema e pessoas
 
