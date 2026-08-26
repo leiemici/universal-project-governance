@@ -114,10 +114,10 @@
     "P1.04": {
       "id": "P1.04",
       "epic_id": "P1",
-      "status": "memory-updated",
+      "status": "committed",
       "path": "docs/stories/P1.04.story.md",
-      "last_step": "step-c-07-update-project-memory",
-      "last_updated": "2026-08-26T17:10:00-03:00",
+      "last_step": "step-c-08-commit-push",
+      "last_updated": "2026-08-26T17:16:00-03:00",
       "steps_completed": [
         "step-c-01-setup-branch",
         "step-c-02-diagnose",
@@ -129,7 +129,8 @@
         "step-c-066-property-tests",
         "step-c-065-validate-tests",
         "step-c-13-qa-gate",
-        "step-c-07-update-project-memory"
+        "step-c-07-update-project-memory",
+        "step-c-08-commit-push"
       ]
     },
     "P1.05": {
@@ -147,7 +148,7 @@
   },
   "active_epic": "P1",
   "active_story": "P1.04",
-  "last_updated": "2026-08-26T17:10:00-03:00",
+  "last_updated": "2026-08-26T17:16:00-03:00",
   "state_aggregate_reconciliations": [
     {
       "schemaVersion": 1,
