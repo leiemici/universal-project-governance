@@ -8,6 +8,9 @@
 - Perfil do participante: função, habilidade relevante, disponibilidade e autoridade:
 - Branch exclusiva: `task/<ID>-<slug>`
 - Commit-base:
+- Snapshot de contexto: `contexts/<task-id>.context.json`
+- Estado e validade do snapshot: draft | valid | expired | invalidated
+- Overlays avaliados/ativos e fatos confirmados:
 - Área de propriedade e arquivos permitidos:
 - Classe: núcleo | bônus
 - Entrada e artefato esperado:

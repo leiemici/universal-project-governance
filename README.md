@@ -23,6 +23,7 @@ A estrutura não tenta eliminar falhas humanas. Ela torna **alvo, prazo, destino
 - `PROJECT_CHARTER.md` é a diretiva operacional vigente.
 - `docs/decisions.md` altera a diretiva sem apagar a história.
 - `docs/tasks.md` mostra execução e responsabilidade por unidade de trabalho.
+- `docs/context-registry.md` e `contexts/` mostram qual revisão, autoridade e dados cada consumidor utilizou.
 - `docs/handoff.md` mostra onde retomar agora.
 
 Se houver conflito, prevalece a decisão aprovada mais recente. Nenhuma LLM muda alvo, prazo, destino, escopo ou risco silenciosamente.

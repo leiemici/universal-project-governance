@@ -13,6 +13,8 @@ Antes de agir, repita internamente o compasso: **ALVO → PRAZO RESTANTE → DES
 - Marque todo resultado como `simulado`, `estimado`, `executado` ou `validado`, conforme `CONTEXT.md`.
 - Não altere contrato, escopo ou classificação de risco sem decisão humana registrada.
 - Antes de editar, sincronize a branch de integração e registre o commit-base na tarefa. Se charter, decisões ou handoff mudaram, releia-os.
+- Antes de uma LLM executar, valide o snapshot indicado pela tarefa conforme `docs/context-registry.md`. Snapshot ausente, inválido, vencido ou sem identidade, autonomia e política de dados permite leitura, mas reduz a autonomia efetiva a `read-only`.
+- Mudança material invalida somente snapshots que observam a referência e a classe alteradas; não revalide ou invalide toda a equipe por conveniência.
 - Toda tarefa cita sua fonte canônica. Ambiguidade com mais de uma interpretação vira decisão; não escolha a opção mais ampla.
 - Toda tarefa tem uma palavra-chave primária e explica como sua saída aproxima o DESTINO. Sem esse vínculo, não iniciar.
 - Use o orçamento central do projeto. Tempo informado por integrante ajusta capacidade, nunca redefine o prazo.
