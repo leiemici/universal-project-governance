@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "evidence_id": "EV-P1.04-example",
+  "task_id": "P1.04-example",
+  "classification": "simulado",
+  "subject": "Exemplo de registro portátil sem alegação de execução real",
+  "provenance": {
+    "source_kind": "fixture",
+    "source_ref": "evidence/EV-P1.04-example.json",
+    "collected_at": "2026-08-26T16:45:00-03:00",
+    "coverage": "somente formato e mensagens do verificador",
+    "age_at_validation": "menos de um dia",
+    "transformations": [],
+    "limitations": ["não representa execução em ambiente de destino"]
+  },
+  "execution": null,
+  "review": null,
+  "delivery_commit": null,
+  "acceptance_satisfied": false
+}

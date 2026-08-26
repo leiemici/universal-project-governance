@@ -114,8 +114,23 @@
     "P1.04": {
       "id": "P1.04",
       "epic_id": "P1",
-      "status": "planned",
-      "path": "docs/stories/P1.04.story.md"
+      "status": "memory-updated",
+      "path": "docs/stories/P1.04.story.md",
+      "last_step": "step-c-07-update-project-memory",
+      "last_updated": "2026-08-26T17:10:00-03:00",
+      "steps_completed": [
+        "step-c-01-setup-branch",
+        "step-c-02-diagnose",
+        "step-c-03-research",
+        "step-c-04-write-spec",
+        "step-c-05-create-tasks",
+        "step-c-06-implement-tasks",
+        "step-c-14-refactor-suggest",
+        "step-c-066-property-tests",
+        "step-c-065-validate-tests",
+        "step-c-13-qa-gate",
+        "step-c-07-update-project-memory"
+      ]
     },
     "P1.05": {
       "id": "P1.05",
@@ -131,8 +146,8 @@
     }
   },
   "active_epic": "P1",
-  "active_story": null,
-  "last_updated": "2026-08-26T16:25:52-03:00",
+  "active_story": "P1.04",
+  "last_updated": "2026-08-26T17:10:00-03:00",
   "state_aggregate_reconciliations": [
     {
       "schemaVersion": 1,

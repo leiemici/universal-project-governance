@@ -34,3 +34,5 @@ Uma área crítica tem um único dono ativo. Trabalho concorrente nessa área ex
 O ciclo canônico está em `docs/work-lifecycle.md`. A branch isola trabalho, mas não concede autoridade fora da tarefa. Propriedade só muda com handoff aceito; oferta, ausência ou expiração não transferem responsabilidade automaticamente. O integrador resolve sobreposição em área crítica e decide reassumir, substituir ou cortar handoff expirado.
 
 Uma saída só está pronta quando evidência e revisão citam o mesmo commit. A integração cita esse mesmo commit ou uma exceção humana registrada; qualquer alteração material reabre revisão e evidência.
+
+O gate estrutural mínimo é `python tools/validate_governance.py repo`, documentado em `docs/validation.md`. Ele verifica presença, referências, overlays e registros de evidência; não substitui revisão profissional nem prova enforcement externo.

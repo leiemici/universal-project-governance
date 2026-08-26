@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "evidence_id": "EV-valid-review",
+  "task_id": "T-valid",
+  "classification": "validado",
+  "subject": "Execução reproduzida na mesma revisão",
+  "provenance": {
+    "source_kind": "repository",
+    "source_ref": "commit aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "collected_at": "2026-08-26T16:45:00-03:00",
+    "coverage": "caso principal e falha esperada",
+    "age_at_validation": "imediata",
+    "transformations": ["normalização de saída para texto"],
+    "limitations": ["não prova semântica externa"]
+  },
+  "execution": {
+    "environment": "Python 3 standard library",
+    "command_or_case": "python tools/validate_governance.py repo",
+    "result": "PASS",
+    "commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "reproducible": true
+  },
+  "review": {
+    "reviewer": "reviewer@example",
+    "reviewed_at": "2026-08-26T16:46:00-03:00",
+    "review_commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "result": "accepted"
+  },
+  "delivery_commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "acceptance_satisfied": true
+}

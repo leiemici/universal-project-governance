@@ -26,6 +26,7 @@ A estrutura não tenta eliminar falhas humanas. Ela torna **alvo, prazo, destino
 - `docs/work-lifecycle.md` define estados, propriedade, revisão, integração e transferência.
 - `docs/context-registry.md` e `contexts/` mostram qual revisão, autoridade e dados cada consumidor utilizou.
 - `docs/handoff.md` mostra onde retomar agora.
+- `docs/validation.md` explica o gate portátil; `python tools/validate_governance.py repo` verifica a estrutura antes da integração.
 
 Se houver conflito, prevalece a decisão aprovada mais recente. Nenhuma LLM muda alvo, prazo, destino, escopo ou risco silenciosamente.
 
@@ -34,6 +35,8 @@ Se houver conflito, prevalece a decisão aprovada mais recente. Nenhuma LLM muda
 O volume de planejamento é proporcional ao projeto: até 4 horas usa diretiva, segmentos e no máximo seis tarefas; projetos de dias usam funcionalidades ou fatias verticais; épicos e stories só entram quando duração e dependências justificarem o custo de coordenação.
 
 Mudanças na estrutura são verificadas contra `docs/validation-matrix.md`, que simula entradas vagas, excesso de confiança, escopo tardio, conflito entre LLMs, evidência falsa e mudança de risco.
+
+O verificador usa somente Python 3 standard library. Ele não instala dependências nem exige que o projeto derivado possua aplicação, API, banco ou stack específica.
 
 A bateria comparativa mais recente está em `docs/simulation-report-10-projects.md`. Ela registra dez projetos, três níveis de LLM, déficits observados e o limite atual da estrutura para riscos altos e extremos.
 
