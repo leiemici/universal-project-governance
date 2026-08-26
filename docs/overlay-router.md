@@ -7,7 +7,7 @@ Este é o único ponto de entrada para pessoas e LLMs depois que o proprietário
 1. Leia `PROJECT_CHARTER.md` e confirme que os fatos do roteador foram preenchidos pelo proprietário.
 2. Leia `CONTEXT.md` e `docs/steering.md`.
 3. Avalie todos os gatilhos de `overlays.json`; overlays simultâneos são cumulativos.
-4. Leia `GOVERNANCE.md`, `docs/decisions.md`, `docs/tasks.md` e `docs/handoff.md`.
+4. Leia `GOVERNANCE.md`, `docs/decisions.md`, `docs/work-lifecycle.md`, `docs/tasks.md` e `docs/handoff.md`.
 5. Leia os arquivos adicionais de cada overlay ativo, na ordem declarada no manifesto.
 6. Registre na tarefa quais overlays foram avaliados, quais ficaram ativos e quais fatos justificaram a decisão.
 

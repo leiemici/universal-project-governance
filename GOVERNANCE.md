@@ -28,3 +28,9 @@ Use apenas provedores e modelos aprovados em `docs/decisions.md`. Dados pessoais
 Código ou configuração gerada por LLM exige revisão humana do diff, dependências/licenças e testes proporcionais ao risco. Antes de commit, merge ou publicação, execute as verificações de segredos e dados proibidos definidas pelo projeto. Conflitos em código, contrato ou configuração exigem revisão do dono afetado e repetição das evidências.
 
 Uma área crítica tem um único dono ativo. Trabalho concorrente nessa área exige decisão de integração aprovada antes do merge. Decisões não são apagadas ou reescritas: são substituídas por um novo ID.
+
+## Propriedade, revisão e continuidade
+
+O ciclo canônico está em `docs/work-lifecycle.md`. A branch isola trabalho, mas não concede autoridade fora da tarefa. Propriedade só muda com handoff aceito; oferta, ausência ou expiração não transferem responsabilidade automaticamente. O integrador resolve sobreposição em área crítica e decide reassumir, substituir ou cortar handoff expirado.
+
+Uma saída só está pronta quando evidência e revisão citam o mesmo commit. A integração cita esse mesmo commit ou uma exceção humana registrada; qualquer alteração material reabre revisão e evidência.

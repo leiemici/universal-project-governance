@@ -23,6 +23,7 @@ A estrutura não tenta eliminar falhas humanas. Ela torna **alvo, prazo, destino
 - `PROJECT_CHARTER.md` é a diretiva operacional vigente.
 - `docs/decisions.md` altera a diretiva sem apagar a história.
 - `docs/tasks.md` mostra execução e responsabilidade por unidade de trabalho.
+- `docs/work-lifecycle.md` define estados, propriedade, revisão, integração e transferência.
 - `docs/context-registry.md` e `contexts/` mostram qual revisão, autoridade e dados cada consumidor utilizou.
 - `docs/handoff.md` mostra onde retomar agora.
 

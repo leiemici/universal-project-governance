@@ -5,6 +5,8 @@
 
 Uma pessoa só recebe tarefa após confirmar este perfil e ler o handoff. Integrantes tardios passam por reentrada guiada e confirmação do integrador.
 
+O vínculo entre pessoa e trabalho vive na tarefa, não em um status pessoal. Cada tarefa possui um dono ativo; a transferência segue `docs/work-lifecycle.md`. Ausência, mensagem privada ou handoff apenas oferecido não autorizam outro integrante a assumir.
+
 ## Entrada de integrante
 
 Não gere outro PRD. A LLM lê charter, tarefas e handoff e faz perguntas simples:
