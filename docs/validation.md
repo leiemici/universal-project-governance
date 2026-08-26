@@ -2,6 +2,8 @@
 
 O verificador transforma invariantes estruturais em mensagens acionáveis sem afirmar verdade externa. Ele usa somente a biblioteca padrão do Python 3 e não depende do runtime, stack ou gerenciador de pacotes do projeto derivado.
 
+O workflow `.github/workflows/governance-validation.yml` repete o gate em pull requests e em `main`, com permissão somente de leitura e sem instalar pacotes Python.
+
 ## Comandos
 
 ```text
@@ -30,4 +32,4 @@ Toda evidência registra fonte, coleta, cobertura, idade na validação, transfo
 
 `governance.validation.json` define somente caminhos e globs da instância. `docs/evidence-record.schema.json` é o contrato interoperável; `tools/validate_governance.py` implementa o subconjunto operacional com mensagens estáveis. Projetos sem Python podem implementar o mesmo esquema em outra linguagem sem alterar a semântica.
 
-Referências: [JSON Schema 2020-12](https://json-schema.org/draft/2020-12) e [Python Standard Library](https://docs.python.org/3/library/).
+Referências: [JSON Schema 2020-12](https://json-schema.org/draft/2020-12), [Python Standard Library](https://docs.python.org/3/library/) e [GitHub — Building and testing Python](https://docs.github.com/actions/automating-builds-and-tests/building-and-testing-python).
