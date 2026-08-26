@@ -57,7 +57,7 @@ Consolidate the repository into a coherent universal core plus conditional overl
 - `P1.02` passed QA and was physically merged as `36e6d31` on 2026-08-26.
 - `P1.03` passed QA and was physically merged as `678f57a` on 2026-08-26.
 - `P1.04` passed QA and was physically merged as `de2d85d` on 2026-08-26.
-- `P1.05` passed its local QA gate on 2026-08-26; physical merge evidence is pending.
+- `P1.05` passed QA and was physically merged as `6c48176` on 2026-08-26; `P1.06` is the next implementation unit.
 
 ## Known gaps to resolve
 
@@ -85,7 +85,7 @@ Story `P1.03` defines the canonical task/branch/handoff lifecycle in `docs/work-
 
 Story `P1.04` adds `docs/evidence-record.schema.json`, `governance.validation.json` and a Python standard-library validator for paths, overlays, provenance and evidence strength. Its QA passed 13 unit tests, 63 generated property cases and GitHub Actions on the reviewed head; PR `#8` was physically merged as `de2d85d`. Invalid fixture/execution and review claims fail with actionable exit code. The generic npm server test remains `[N/A]` because the repository has no application runtime.
 
-Story `P1.05` adds `docs/risk-boundary.md`, a portable risk-control record, domain annex templates and executable gates for authority, drift, external enforcement, provider attestation, recovery and destination changes. Its local QA passed 19 tests and 69 property cases across clinical, financial and physical scenarios. A PASS never authorizes operation.
+Story `P1.05` adds `docs/risk-boundary.md`, a portable risk-control record, domain annex templates and executable gates for authority, drift, external enforcement, provider attestation, recovery and destination changes. Its QA passed 19 tests, 69 property cases and GitHub Actions; PR `#10` was physically merged as `6c48176`. A PASS never authorizes operation.
 
 Story `P1.06` next re-runs multi-LLM and human validation after the rules became canonical and executable.
 
