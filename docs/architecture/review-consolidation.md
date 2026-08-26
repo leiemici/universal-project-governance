@@ -1,14 +1,14 @@
 # Revisão e consolidação da arquitetura
 
-Status: **APROVADA COM CONDIÇÕES**
+Status: **IMPLEMENTADA E VALIDADA ESTRUTURALMENTE, COM DÍVIDA EMPÍRICA EXPLÍCITA**
 Escopo: PRD, arquitetura, épico P1, stories P1.01–P1.06 e estrutura anterior do repositório
 Modo: `non-UI`
 
 ## 1. Veredito
 
-A arquitetura proposta é coerente para evoluir o repositório de um conjunto de boas regras para um sistema documental verificável. Ela preserva o que já funcionava — alvo, prazo, destino, palavras-chave, tarefas e checkpoints — e adiciona as conexões que faltavam: snapshot, overlay, autoridade, evidência, gate e handoff aceito.
+A arquitetura foi implementada pelas stories P1.01–P1.06. O repositório preserva alvo, prazo, destino, palavras-chave, tarefas e checkpoints e agora também possui roteador determinístico, snapshot portável, identidade/autonomia de LLM, lifecycle de tarefa e handoff, evidência verificável, limites alto/extremo e regressão reproduzível.
 
-A aprovação é condicional porque os novos contratos e fitness functions ainda são desenho. O repositório atual não implementa o manifesto de contexto, roteador de overlays, expiração de handoff ou lint estrutural. Até P1.01–P1.04 serem implementadas e testadas, a base continua adequada como orientação para risco baixo/médio, não como mecanismo de controle alto/extremo.
+O veredito estrutural é aprovado: o gate local e o CI validam os contratos portáveis. A dívida restante é empírica, não ocultada: ainda não houve estudo com participantes humanos nem chamadas reais a fornecedores de LLM. Para alto/extremo, esta base bloqueia ou rebaixa o destino quando falta controle externo; ela nunca autoriza operação por documentação.
 
 ## 2. Evidências verificadas
 
@@ -25,20 +25,20 @@ A aprovação é condicional porque os novos contratos e fitness functions ainda
 
 | Requisito do PRD | Componente | Story | Fitness function | Estado |
 |---|---|---|---|---|
-| R1 sintetizar conversa | Intake & Charter | P1.01 | UG-001 | coberto em desenho |
-| R2 charter curto | Intake & Charter | P1.01 | UG-001/UG-009 | coberto em desenho |
-| R3 palavras-chave | Work Graph | P1.01/P1.03 | UG-002 | coberto em desenho |
-| R4 classificar risco/dados | Overlay Router | P1.01/P1.05 | UG-007/UG-008 | coberto em desenho |
-| R5 planejar proporcionalmente | Work Graph | P1.01 | UG-009/UG-012 | coberto em desenho |
-| R6 entrada de integrante | Context/Work Graph | P1.02/P1.03 | UG-002/UG-003 | coberto em desenho |
-| R7 identidade da LLM | Context Registry | P1.02 | UG-003 | coberto em desenho |
-| R8 decisões por substituição | Intake/Risk Boundary | P1.03/P1.05 | UG-001/UG-010 | coberto em desenho |
-| R9 evidência por revisão | Evidence Ledger | P1.04 | UG-005/UG-011 | coberto em desenho |
-| R10 invalidar contexto/risco | Context/Risk Boundary | P1.02/P1.05 | UG-003/UG-010 | coberto em desenho |
-| R11 handoff aceito | Continuity | P1.03 | UG-004 | coberto em desenho |
-| R12 overlays condicionais | Overlay Router | P1.01/P1.05 | UG-007/UG-012 | coberto em desenho |
+| R1 sintetizar conversa | Intake & Charter | P1.01 | UG-001 | implementado |
+| R2 charter curto | Intake & Charter | P1.01 | UG-001/UG-009 | implementado |
+| R3 palavras-chave | Work Graph | P1.01/P1.03 | UG-002 | implementado |
+| R4 classificar risco/dados | Overlay Router | P1.01/P1.05 | UG-007/UG-008 | implementado |
+| R5 planejar proporcionalmente | Work Graph | P1.01 | UG-009/UG-012 | implementado |
+| R6 entrada de integrante | Context/Work Graph | P1.02/P1.03 | UG-002/UG-003 | implementado; tempo humano não observado |
+| R7 identidade da LLM | Context Registry | P1.02 | UG-003 | implementado |
+| R8 decisões por substituição | Intake/Risk Boundary | P1.03/P1.05 | UG-001/UG-010 | implementado |
+| R9 evidência por revisão | Evidence Ledger | P1.04 | UG-005/UG-011 | implementado |
+| R10 invalidar contexto/risco | Context/Risk Boundary | P1.02/P1.05 | UG-003/UG-010 | implementado |
+| R11 handoff aceito | Continuity | P1.03 | UG-004 | implementado |
+| R12 overlays condicionais | Overlay Router | P1.01/P1.05 | UG-007/UG-012 | implementado |
 
-Nenhum requisito ficou órfão. A implementação e a prova continuam pendentes.
+Nenhum requisito ficou órfão. A prova estrutural é reproduzível por `python tools/validate_governance.py repo` e `python -m unittest discover -s tests -v`; a prova humana e de fornecedores reais permanece separada e não observada.
 
 ### 3.2 Etapas fixas do NeoCortex
 
@@ -72,16 +72,16 @@ O núcleo permanece pequeno; overlays entram por gatilho; o modo rápido possui 
 
 A arquitetura não vende documentação como segurança. IAM, gateway, sandbox, interlock e parada precisam de evidência externa. Se faltarem, o destino pode ser rebaixado, não falsamente aprovado.
 
-## 5. Condições de aprovação
+## 5. Condições de aprovação — resultado final
 
-### C0 — corrigir antes de declarar a base consolidada
+### C0 — concluído em P1.01
 
 1. **Unificar entrada canônica.** `README.md`, `AGENTS.md` e `NEOCORTEX.md` ainda possuem ordens diferentes. Alto/extremo deve carregar perfil e runbook em todas as rotas aplicáveis.
 2. **Eliminar conflito de evidência.** `AGENTS.md` usa `ao vivo`; PRD e arquitetura usam `executado`. Escolher uma taxonomia e documentar migração/alias.
 3. **Distinguir os dois PRDs.** `PRD.md` é template de instância; `docs/architecture/prd.md` é PRD do próprio produto. Essa diferença deve aparecer no README e na memória.
 4. **Implementar o roteador mínimo.** Sem uma tabela canônica de gatilhos, overlays continuam dependendo da interpretação da LLM.
 
-### C1 — concluir antes da próxima bateria de regressão
+### C1 — concluído em P1.02–P1.04
 
 5. Implementar manifesto de contexto e invalidação seletiva.
 6. Adicionar emissor, receptor, aceite, validade, contrato e escalonamento ao handoff.
@@ -89,7 +89,7 @@ A arquitetura não vende documentação como segurança. IAM, gateway, sandbox, 
 8. Implementar fitness functions UG-001–UG-007 e UG-011/UG-012 em formato portável.
 9. Manter backup e temporários do NeoCortex fora do versionamento, preservando `state.json` quando ele for a memória compartilhada aprovada.
 
-### C2 — necessário para alto/extremo
+### C2 — concluído como gate documental não autorizador em P1.05
 
 10. Implementar UG-008 e UG-010 com evidência externa, não autorrelato.
 11. Criar anexos separados para saúde, finanças e sistemas físicos.
@@ -133,8 +133,8 @@ Nenhuma contradição invalida o desenho, mas as quatro primeiras afetam operaç
 
 ## 9. Gate de avanço
 
-O projeto pode avançar para implementação das stories P1.01–P1.04. P1.05 pode avançar como desenho de contratos, mas nenhuma operação alto/extremo deve ser autorizada por esta base. P1.06 somente mede remediação depois que as regras migrarem para artefatos canônicos e verificáveis.
+As stories P1.01–P1.06 foram implementadas, revisadas e mescladas. A base pode ser usada estruturalmente em projetos derivados, sempre respeitando os overlays. Operações alto/extremo continuam dependentes de enforcement técnico e especialistas externos. O próximo gate de pesquisa é observar onboarding humano e comparar fornecedores reais sem converter simulação em evidência empírica.
 
 ## 10. Conclusão
 
-A arquitetura está alinhada ao objetivo do usuário: excelência por convergência, não por perfeccionismo. Ela permite ramificar execução sem ramificar a verdade do projeto. O próximo ganho não virá de mais documentação; virá de corrigir as quatro inconsistências C0 e transformar os contratos essenciais em verificações pequenas e portáveis.
+A arquitetura está alinhada ao objetivo do usuário: excelência por convergência, não por perfeccionismo. Ela permite ramificar execução sem ramificar a verdade do projeto, e os contratos essenciais agora possuem verificações pequenas e portáveis. O próximo ganho depende de uso observado com pessoas e LLMs reais, não de acrescentar mais documentação ao núcleo.
