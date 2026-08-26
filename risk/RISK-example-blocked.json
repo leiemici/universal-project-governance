@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "assessment_id": "RISK-example-blocked",
+  "risk_level": "alto",
+  "domain": "financeiro",
+  "destination": "simulador",
+  "destination_basis": "initial",
+  "status": "bloqueado",
+  "required_documents": { "profile": "profiles/high-extreme.md", "runbook": "RUNBOOK.md", "annex": "domain-annexes/financial.md", "annex_status": "template-not-approved" },
+  "authority": { "author": "autor@example", "reviewer": "revisor@example", "approver": "aprovador@example", "approver_competence": "competência a confirmar" },
+  "change": { "baseline_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "cumulative_delta": 0, "threshold": 3, "unit": "mudanças materiais", "threshold_exceeded": false, "risk_reopened": false, "reassessed_at": null },
+  "external_controls": [],
+  "provider_attestations": [],
+  "recovery": { "safe_state": "nenhum efeito financeiro", "stop_mechanism": "interromper simulação", "rollback": "descartar estado local", "reconciliation": "confirmar zero transações" },
+  "destination_change": null,
+  "decision": { "action": "bloquear", "approved_by": "aprovador@example", "approved_at": "2026-08-26T16:55:00-03:00", "decision_ref": "docs/decisions.md#example" }
+}

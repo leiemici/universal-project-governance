@@ -10,11 +10,14 @@
     "docs/context-manifest.schema.json",
     "docs/work-lifecycle.md",
     "docs/evidence-record.schema.json",
+    "docs/risk-boundary.md",
+    "docs/risk-control-record.schema.json",
     "docs/tasks.md",
     "docs/handoff.md",
     "docs/decisions.md",
     "overlays.json"
   ],
   "evidence_globs": ["evidence/*.json"],
+  "risk_globs": ["risk/*.json"],
   "overlay_manifest": "overlays.json"
 }

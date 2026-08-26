@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:universal-project-governance:risk-control-record:1",
+  "title": "High/extreme risk boundary record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "assessment_id", "risk_level", "domain", "destination", "destination_basis", "status", "required_documents", "authority", "change", "external_controls", "provider_attestations", "recovery", "destination_change", "decision"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "assessment_id": { "type": "string", "pattern": "^RISK-[A-Za-z0-9._-]+$" },
+    "risk_level": { "enum": ["alto", "extremo"] },
+    "domain": { "enum": ["nenhum", "clínico", "financeiro", "físico"] },
+    "destination": { "enum": ["produção", "canário-shadow", "sandbox", "simulador", "pacote-de-evidência"] },
+    "destination_basis": { "enum": ["initial", "changed"] },
+    "status": { "enum": ["bloqueado", "pronto-para-revisão", "aprovado-para-destino", "expirado"] },
+    "required_documents": { "type": "object", "required": ["profile", "runbook", "annex", "annex_status"] },
+    "authority": { "type": "object", "required": ["author", "reviewer", "approver", "approver_competence"] },
+    "change": { "type": "object", "required": ["baseline_revision", "cumulative_delta", "threshold", "unit", "threshold_exceeded", "risk_reopened", "reassessed_at"] },
+    "external_controls": { "type": "array" },
+    "provider_attestations": { "type": "array" },
+    "recovery": { "type": "object", "required": ["safe_state", "stop_mechanism", "rollback", "reconciliation"] },
+    "destination_change": { "type": ["object", "null"] },
+    "decision": { "type": "object", "required": ["action", "approved_by", "approved_at", "decision_ref"] }
+  }
+}
