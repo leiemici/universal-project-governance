@@ -63,7 +63,7 @@ The universal core and conditional overlays are implemented and structurally val
 ## Known gaps to resolve
 
 - Multi-LLM identity and context are recorded, but an independence group remains a declaration rather than proof of independent evidence or incentives.
-- `Governance validation` runs on PR and `main`, but branch protection does not yet require the check.
+- `Governance validation` runs on PR and `main`; branch protection requires the current `validate` check, up-to-date history and resolved review conversations before merge.
 - High/extreme gates remain documentary and require domain-specific technical enforcement outside this repository.
 - The structural regression is executable, but ease of use by real people and behavior of live LLM providers remain empirical validation debt.
 
