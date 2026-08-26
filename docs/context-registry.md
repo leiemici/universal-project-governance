@@ -65,7 +65,7 @@ watched_refs
 next_consumer
 ```
 
-Campos extras proprietários são proibidos no núcleo (`additionalProperties: false`). Extensões futuras exigem nova versão do schema e migração explícita.
+Campos extras proprietários são proibidos no núcleo (`additionalProperties: false`). Metadados opcionais ficam somente em `extensions`, sob namespace estável; todo consumidor pode ignorá-los. Extensão não altera identidade, autonomia, dados, validade ou invalidação e nunca contém segredo, prompt integral ou dado pessoal. Mudança no núcleo exige nova versão do schema e migração explícita.
 
 ## Limite de confiança
 

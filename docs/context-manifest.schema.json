@@ -74,7 +74,12 @@
     "consumer": { "$ref": "#/$defs/consumer" },
     "data_policy": { "$ref": "#/$defs/data_policy" },
     "invalidation": { "$ref": "#/$defs/invalidation" },
-    "next_consumer": { "type": "string", "minLength": 1 }
+    "next_consumer": { "type": "string", "minLength": 1 },
+    "extensions": {
+      "type": "object",
+      "propertyNames": { "pattern": "^[a-z0-9][a-z0-9.-]+$" },
+      "additionalProperties": { "type": "object" }
+    }
   },
   "allOf": [
     {
